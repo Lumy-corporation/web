@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-RBK1P68BP9');
+    </script>
+
+    <script src="cookies.js" defer></script>
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+
+    <title>Journal de Bord | LUMY CORPORATION</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --lumy-cyan: #00f2ff;
+            --lumy-purple: #b400ff;
+            --bg-ultra-light: #f0f0f3;
+            --text-main: #1d1d1f;
+            --text-secondary: #424245;
+            --glass-bg: rgba(255, 255, 255, 0.4);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            background: var(--bg-ultra-light); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-top: 140px;
+        }
+
+        /* --- FOND PARTICULES --- */
+        #particles-js {
+            position: fixed; width: 100%; height: 100%;
+            top: 0; left: 0; z-index: -1;
+            background: radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.15), transparent 45%),
+                        radial-gradient(circle at 90% 90%, rgba(180, 0, 255, 0.1), transparent 45%);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto 100px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 12px;
+            background: linear-gradient(90deg, var(--text-main), #00b4cc, var(--lumy-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--lumy-purple);
+            margin: 80px 0 40px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, rgba(180, 0, 255, 0.2), transparent);
+        }
+
+        /* --- BLOG GRID --- */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .post-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 35px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--lumy-cyan), var(--lumy-purple));
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--lumy-cyan);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.1);
+        }
+
+        .post-card:hover::before {
+            opacity: 1;
+        }
+
+        .status-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            background: rgba(0, 180, 204, 0.1);
+            color: #00b4cc;
+            padding: 6px 16px;
+            border-radius: 100px;
+            width: fit-content;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .post-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .post-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .read-more {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--lumy-purple);
+            text-transform: uppercase;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+            letter-spacing: 1px;
+        }
+
+        .post-card:hover .read-more {
+            color: #00b4cc;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; letter-spacing: 6px; }
+            .container { width: 92%; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="container">
+    <div class="header-section">
+        <h1>JOURNAL</h1>
+        <p class="subtitle">Chroniques de la Corporation et d'AuraOS</p>
+    </div>
+
+    <h2 class="section-title">🚀 Développement Système</h2>
+    <div class="blog-grid">
+        <div class="post-card">
+            <div class="status-badge">KERNEL : OPTIMISÉ</div>
+            <h3>Architecture d'AuraOS</h3>
+            <p>Le noyau Zen est désormais au cœur de nos tests. Résultat : une réactivité accrue de 25% sur les applications lourdes et un boot éclair.</p>
+            <div class="read-more">Rapport technique <i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="post-card">
+            <div class="status-badge">UI/UX : AURA</div>
+            <h3>Le Nouveau Bureau</h3>
+            <p>Aperçu des animations de fenêtres et de la barre de progression signature qui accompagneront la première version grand public.</p>
+            <div class="read-more">Explorer les visuels <i class="fas fa-arrow-right"></i></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">🏢 Vie de la Corporation</h2>
+    <div class="blog-grid">
+        <div class="post-card">
+            <div class="status-badge">RECRUTEMENT</div>
+            <h3>Elite Student Program</h3>
+            <p>Ouverture des inscriptions pour le label Lumy. Nous cherchons les 100 prochains ambassadeurs pour porter nos couleurs.</p>
+            <div class="read-more">Déposer sa candidature <i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="post-card">
+            <div class="status-badge">EVENT : REPLAY</div>
+            <h3>Inauguration 2026</h3>
+            <p>Résumé de la conférence de lancement et présentation de la vision "Maison-Mère" pour l'indépendance technologique.</p>
+            <div class="read-more">Lire le résumé <i class="fas fa-arrow-right"></i></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#001a33" },
+        "opacity": { "value": 0.3 },
+        "size": { "value": 2.5, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#001a33", "opacity": 0.1, "width": 1 },
+        "move": { "enable": true, "speed": 0.8 }
+    },
+    "interactivity": { 
+        "events": { "onhover": { "enable": true, "mode": "grab" } } 
+    },
+    "retina_detect": true
+});
+</script>
+
+</body>
+</html>

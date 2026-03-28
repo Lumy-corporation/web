@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-RBK1P68BP9');
+    </script>
+    <script src="cookies.js" defer></script>
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+
+    <title>Roadmap | LUMY CORPORATION</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --lumy-cyan: #00f2ff;
+            --lumy-purple: #b400ff;
+            --bg-ultra-light: #f0f0f3;
+            --text-main: #1d1d1f;
+            --text-secondary: #424245;
+            /* Transparence augmentée (0.4 au lieu de 0.7) pour voir les particules derrière */
+            --glass-bg: rgba(255, 255, 255, 0.4); 
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            background: var(--bg-ultra-light); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-top: 140px;
+        }
+
+        /* --- FOND PARTICULES --- */
+        #particles-js {
+            position: fixed; 
+            width: 100%; 
+            height: 100%;
+            top: 0; 
+            left: 0; 
+            z-index: -1; /* Reste bien derrière tout */
+            background: radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.15), transparent 45%),
+                        radial-gradient(circle at 90% 90%, rgba(180, 0, 255, 0.1), transparent 45%);
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 12px; font-size: 2.5rem; 
+            background: linear-gradient(90deg, var(--text-main), #00b4cc, var(--lumy-purple)); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            font-weight: 900; text-transform: uppercase; text-align: center;
+            position: relative; z-index: 1;
+        }
+
+        .subtitle {
+            color: var(--text-secondary); font-family: 'Orbitron', sans-serif; 
+            font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; text-align: center; opacity: 0.6;
+            position: relative; z-index: 1;
+        }
+
+        .roadmap-container {
+            display: flex; flex-direction: column; align-items: center;
+            width: 100%; max-width: 1100px; margin: 80px auto; position: relative; padding: 0 20px;
+            z-index: 1; /* Permet aux particules de rester en dessous */
+        }
+
+        /* Ligne de tracé colorée */
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                var(--lumy-purple) 0%, 
+                var(--lumy-cyan) 50%, 
+                rgba(0, 242, 255, 0) 100%);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            border-radius: 2px;
+        }
+
+        .step {
+            display: flex; justify-content: center; align-items: center;
+            width: 100%; margin: 60px 0; position: relative;
+        }
+
+        .step-node {
+            width: 20px; height: 20px;
+            background: #fff;
+            border: 4px solid var(--lumy-cyan);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+        }
+
+        .step-content {
+            width: 42%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px); /* Flou légèrement réduit pour plus de clarté */
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 40px; border-radius: 35px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .step:hover .step-content {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.8); /* Devient plus opaque au survol pour lire mieux */
+            border-color: var(--lumy-cyan);
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.1);
+        }
+
+        .step.left { justify-content: flex-start; }
+        .step.right { justify-content: flex-end; }
+        .step.left .step-content { margin-right: 50px; text-align: right; }
+        .step.right .step-content { margin-left: 50px; text-align: left; }
+
+        .step-date {
+            font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 800;
+            color: var(--lumy-purple); margin-bottom: 15px; display: block; letter-spacing: 2px;
+        }
+
+        .step-title { 
+            font-family: 'Orbitron'; font-size: 1.1rem; letter-spacing: 2px; 
+            text-transform: uppercase; margin-bottom: 15px; font-weight: 800;
+        }
+
+        .status-badge {
+            display: inline-block; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.6rem; font-family: 'Orbitron'; margin-top: 15px;
+            background: rgba(0, 242, 255, 0.1); color: #00b4cc;
+        }
+
+        @media (max-width: 850px) {
+            .roadmap-container::before { left: 20px; transform: none; }
+            .step-node { left: 20px; transform: translateX(-50%); }
+            .step { justify-content: flex-start; padding-left: 50px; }
+            .step-content { width: 100% !important; text-align: left !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<header style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
+    <h1 class="main-title">ASCENSION</h1>
+    <p class="subtitle">Trajectoire technologique de Lumy Corporation</p>
+</header>
+
+<div class="roadmap-container">
+
+    <div class="step left">
+        <div class="step-node"></div>
+        <div class="step-content">
+            <span class="step-date">26 JANVIER 2026</span>
+            <h3 class="step-title">Genèse AuraOS</h3>
+            <p>Architecture légère basée sur le noyau Zen/Liquorix. Focus sur la performance pure et l'interface Lumy.</p>
+            <div class="status-badge">TERMINÉ</div>
+        </div>
+    </div>
+
+    <div class="step right">
+        <div class="step-node"></div>
+        <div class="step-content">
+            <span class="step-date">23 FÉVRIER 2026</span>
+            <h3 class="step-title">LUMY CORPORATION</h3>
+            <p>Officialisation de la maison-mère. Lancement du label pour l'incubation des futurs talents de l'informatique.</p>
+            <div class="status-badge">ACTIF</div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+/* Configuration optimisée pour voir les particules à travers le verre */
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#001a33" },
+        "opacity": { "value": 0.3, "random": false }, /* Particules un peu plus visibles */
+        "size": { "value": 3, "random": true },
+        "line_linked": { 
+            "enable": true, 
+            "distance": 150, 
+            "color": "#001a33", 
+            "opacity": 0.1, 
+            "width": 1 
+        },
+        "move": { "enable": true, "speed": 0.8 }
+    },
+    "interactivity": { 
+        "events": { 
+            "onhover": { "enable": true, "mode": "grab" },
+            "onclick": { "enable": true, "mode": "push" }
+        } 
+    },
+    "retina_detect": true
+});
+</script>
+
+</body>
+</html>

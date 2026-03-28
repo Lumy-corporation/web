@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-RBK1P68BP9');
+    </script>
+    
+    <script src="cookies.js" defer></script>
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+
+    <title>Protocoles Légaux | LUMY CORPORATION</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --lumy-cyan: #00f2ff;
+            --lumy-purple: #b400ff;
+            --bg-ultra-light: #f0f0f3;
+            --text-main: #1d1d1f;
+            --text-secondary: #424245;
+            /* Opacité à 0.4 pour voir les particules bouger derrière */
+            --glass-bg: rgba(255, 255, 255, 0.4); 
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            background: var(--bg-ultra-light); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-top: 140px;
+        }
+
+        /* --- FOND PARTICULES & AURA --- */
+        #particles-js {
+            position: fixed; width: 100%; height: 100%;
+            top: 0; left: 0; z-index: -1;
+            background: radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.15), transparent 45%),
+                        radial-gradient(circle at 90% 90%, rgba(180, 0, 255, 0.1), transparent 45%);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 100px 20px; position: relative; z-index: 1; }
+
+        /* --- PANNEAU LÉGAL --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+        }
+
+        h1, h2 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        h1 { 
+            font-size: 2.2rem; letter-spacing: 10px; margin-bottom: 50px; text-align: center;
+            background: linear-gradient(90deg, var(--text-main), var(--lumy-cyan), var(--lumy-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        h2 { 
+            color: var(--text-main); font-size: 0.9rem; margin: 45px 0 20px 0; 
+            letter-spacing: 3px;
+            border-left: 4px solid var(--lumy-cyan);
+            padding-left: 20px;
+            font-weight: 800;
+        }
+
+        p, li { 
+            color: var(--text-secondary); 
+            font-size: 0.95rem; 
+            margin-bottom: 20px; 
+            font-weight: 400;
+        }
+
+        ul { margin-left: 25px; margin-bottom: 30px; list-style-type: none; }
+        ul li::before {
+            content: "•"; color: var(--lumy-purple); font-weight: bold;
+            display: inline-block; width: 1em; margin-left: -1em;
+        }
+
+        strong { color: var(--text-main); font-weight: 700; }
+        .accent { color: #00b4cc; font-weight: 700; }
+
+        hr { border: 0; height: 1px; background: rgba(0,0,0,0.05); margin: 60px 0; }
+
+        /* Badge de certification SSL */
+        .ssl-badge {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(0, 242, 255, 0.1);
+            padding: 18px 25px; border-radius: 20px;
+            margin-top: 30px; font-size: 0.75rem;
+            color: #00b4cc; font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .glass-panel { padding: 40px 20px; border-radius: 30px; }
+            h1 { font-size: 1.5rem; letter-spacing: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="container">
+    <div class="glass-panel">
+        <h1>PROTOCOLES LÉGAUX</h1>
+
+        <section>
+            <h2>1. Éditeur du Site</h2>
+            <p>Le présent terminal est édité par l'Association <strong>LUMY CORPORATION</strong>, structure régie par la loi du 1er juillet 1901.</p>
+            <ul>
+                <li><strong>Siège Social :</strong> Issoire (63500), France</li>
+                <li><strong>Directeur de Publication :</strong> Théo Paul Rabillard</li>
+                <li><strong>Contact :</strong> contact@lumycorp.com</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Hébergement & Souveraineté</h2>
+            <p>L'infrastructure technique et le déploiement sont assurés par :</p>
+            <ul>
+                <li><strong>Cluster :</strong> Google Cloud / Firebase</li>
+                <li><strong>Gestion DNS :</strong> LDS</li>
+                <li><strong>Juridiction des données :</strong> Centre de données situé en <span class="accent">Pologne</span> (Union Européenne).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Propriété Intellectuelle</h2>
+            <p>L'ensemble du patrimoine visuel, le code source AuraOS et la marque <strong>LumyOS</strong> sont la propriété exclusive de Lumy Corporation.</p>
+            <p>Toute extraction ou reproduction non autorisée est passible de poursuites selon l'article <span class="accent">L.122-4 du Code de la propriété intellectuelle</span>.</p>
+        </section>
+
+        <hr>
+
+        <h1 style="font-size: 1.8rem; letter-spacing: 8px;">POLITIQUE RGPD</h1>
+
+        <section>
+            <h2>4. Traitement des Données</h2>
+            <p>Nous traitons vos données d'identification (Identité, Email) dans l'unique but de fournir l'accès à l'écosystème. Vos informations sont stockées sous chiffrement AES-256 en territoire européen.</p>
+        </section>
+
+        <section>
+            <h2>5. Droits de l'Utilisateur</h2>
+            <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'effacement total de vos données. Pour toute requête, contactez l'unité technique : <span class="accent">contact@lumycorp.com</span></p>
+        </section>
+
+        <section>
+            <h2>6. Protocole de Sécurité</h2>
+            <p>Les communications sont sécurisées via le protocole SSL avancé. Aucune donnée ne transite sans chiffrement actif.</p>
+            <div class="ssl-badge">
+                <i class="fas fa-shield-halved"></i>
+                CHIFFREMENT ACTIF — UNITÉ ISSOIRE-01
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#001a33" },
+        "opacity": { "value": 0.3 },
+        "size": { "value": 2.5, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#001a33", "opacity": 0.1, "width": 1 },
+        "move": { "enable": true, "speed": 0.8 }
+    },
+    "interactivity": {
+        "events": { "onhover": { "enable": true, "mode": "grab" } }
+    },
+    "retina_detect": true
+});
+</script>
+
+</body>
+</html>

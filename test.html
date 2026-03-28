@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>LumyOS | Elite Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --lumy-cyan: #00f2ff;
+            --lumy-purple: #b400ff;
+            --bg-neutral: #fbfbfd;
+            --glass: rgba(255, 255, 255, 0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-neutral);
+            color: #1d1d1f;
+            font-family: 'Inter', sans-serif;
+            height: 600vh;
+            overflow-x: hidden;
+        }
+
+        /* Arrière-plan Aura Soft */
+        .aura {
+            position: fixed;
+            top: 50%; left: 50%;
+            width: 80vw; height: 80vh;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.08), rgba(180, 0, 255, 0.05), transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: blur(100px);
+        }
+
+        .container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            perspective: 2000px;
+        }
+
+        /* --- LE LAPTOP "STUDIO" --- */
+        .laptop {
+            position: relative;
+            width: 800px;
+            height: 520px;
+            transform-style: preserve-3d;
+            z-index: 2;
+        }
+
+        /* Écran High-End */
+        .lid {
+            position: absolute;
+            bottom: 14px;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 20px 20px 4px 4px;
+            transform-origin: bottom;
+            transform: rotateX(-90deg); /* Fermé */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.03);
+        }
+
+        .screen-inner {
+            width: 97.5%;
+            height: 96%;
+            background: #050505;
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .os-ui {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff, #bc07ff);
+            background-size: 300% 300%;
+            animation: flow 10s infinite alternate;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .os-ui h2 {
+            font-family: 'Orbitron';
+            color: white;
+            font-size: 4rem;
+            letter-spacing: 15px;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+        }
+
+        /* Base Unibody */
+        .base {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 16px;
+            background: linear-gradient(to bottom, #ffffff, #e5e7eb);
+            border-radius: 4px 4px 28px 28px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+        }
+
+        /* Reflet de l'écran sur la base */
+        .reflection {
+            position: absolute;
+            bottom: 16px;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(to top, rgba(0, 242, 255, 0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.8s;
+            pointer-events: none;
+        }
+
+        /* --- TEXTE INTRODUCTION --- */
+        .intro-text {
+            position: absolute;
+            top: 15%;
+            text-align: center;
+            width: 100%;
+        }
+
+        .intro-text h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -3px;
+            color: #1d1d1f;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* --- GRILLE CORPORATE --- */
+        .grid-container {
+            position: absolute;
+            width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            opacity: 0;
+            transform: scale(1.1) translateY(100px);
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 50px;
+            border-radius: 35px;
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: scale(1.05) translateY(-10px);
+            background: #ffffff;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+        }
+
+        .icon-box {
+            width: 60px; height: 6px;
+            background: linear-gradient(90deg, var(--lumy-cyan), var(--lumy-purple));
+            border-radius: 10px;
+            margin: 0 auto 25px;
+        }
+
+        .card h3 {
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #86868b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aura"></div>
+
+    <div class="container">
+        
+        <div class="intro-text">
+            <h1 id="t1">LumyOS.</h1>
+            <h1 id="t2" style="font-size: 2.5rem; color: #86868b; font-weight: 500;">L'ingénierie au service du futur.</h1>
+        </div>
+
+        <div class="laptop" id="lp">
+            <div class="lid" id="ld">
+                <div class="screen-inner" id="sc">
+                    <div class="os-ui">
+                        <h2>LUMY</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="base"></div>
+            <div class="reflection" id="rf"></div>
+        </div>
+
+        <div class="grid-container" id="gc">
+            <div class="card"><div class="icon-box"></div><h3>Architecture Pro</h3></div>
+            <div class="card"><div class="icon-box"></div><h3>Start-up Lab</h3></div>
+            <div class="card"><div class="icon-box"></div><h3>Global Network</h3></div>
+        </div>
+
+    </div>
+
+    <script>
+        const lp = document.getElementById('lp');
+        const ld = document.getElementById('ld');
+        const sc = document.getElementById('sc');
+        const gc = document.getElementById('gc');
+        const t1 = document.getElementById('t1');
+        const t2 = document.getElementById('t2');
+        const rf = document.getElementById('rf');
+
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY / (document.body.offsetHeight - window.innerHeight);
+
+            // Phase 1 : Apparition (0 - 0.2)
+            if (scroll < 0.2) {
+                let p = scroll / 0.2;
+                t1.style.opacity = p;
+                t1.style.transform = `translateY(${30 - p * 30}px)`;
+                t2.style.opacity = p;
+                t2.style.transform = `translateY(${30 - p * 30}px)`;
+                lp.style.transform = `translateY(${100 - p * 100}px)`;
+                lp.style.opacity = p;
+            }
+
+            // Phase 2 : Ouverture chirurgicale (0.2 - 0.45)
+            if (scroll >= 0.2 && scroll < 0.45) {
+                let p = (scroll - 0.2) / 0.25;
+                let angle = -90 + (p * 93);
+                ld.style.transform = `rotateX(${angle}deg)`;
+                sc.style.opacity = p > 0.5 ? "1" : "0";
+                rf.style.opacity = p > 0.6 ? (p - 0.6) * 2 : 0;
+                t1.style.opacity = 1 - p;
+                t2.style.opacity = 1 - p;
+            }
+
+            // Phase 3 : Transition vers la Grille (0.45 - 0.8)
+            if (scroll >= 0.45 && scroll < 0.8) {
+                let p = (scroll - 0.45) / 0.35;
+                lp.style.transform = `scale(${1 - p * 0.5}) translateY(${-p * 200}px)`;
+                lp.style.opacity = 1 - p;
+                
+                gc.style.opacity = p;
+                gc.style.transform = `scale(${1.1 - p * 0.1}) translateY(${100 - p * 100}px)`;
+            }
+
+            // Phase 4 : Focus Final
+            if (scroll >= 0.8) {
+                gc.style.opacity = "1";
+                lp.style.opacity = "0";
+            }
+        });
+    </script>
+</body>
+</html>

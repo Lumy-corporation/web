@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-RBK1P68BP9');
+    </script>
+    
+    <script src="cookies.js" defer></script>
+
+    <title>Mission & Vision | LUMY CORPORATION</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+
+    <style>
+        :root {
+            --lumy-cyan: #00f2ff;
+            --lumy-purple: #b400ff;
+            --bg-ultra-light: #f0f0f3;
+            --text-main: #1d1d1f;
+            --text-secondary: #424245;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            background: var(--bg-ultra-light); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-top: 140px;
+        }
+
+        /* --- FOND PARTICULES & AURA --- */
+        #particles-js {
+            position: fixed; width: 100%; height: 100%;
+            top: 0; left: 0; z-index: -1;
+            background: radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.15), transparent 45%),
+                        radial-gradient(circle at 90% 90%, rgba(180, 0, 255, 0.1), transparent 45%);
+        }
+
+        .container { width: 92%; max-width: 1100px; margin: 0 auto 100px auto; position: relative; z-index: 1; }
+
+        /* --- HERO MISSION (BENTO) --- */
+        .hero-mission {
+            text-align: center; padding: 80px 40px;
+            background: var(--glass-bg); 
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 40px; 
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 60px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.03);
+        }
+
+        h1 { 
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem; margin-bottom: 25px; 
+            background: linear-gradient(90deg, var(--text-main), #00b4cc, var(--lumy-purple)); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero-mission p { 
+            font-size: 1.2rem; 
+            color: var(--text-secondary); 
+            max-width: 800px; 
+            margin: auto; 
+            font-weight: 400; 
+            letter-spacing: 0.5px;
+        }
+
+        h2 { 
+            font-family: 'Orbitron';
+            font-size: 0.9rem; 
+            color: var(--lumy-purple); 
+            margin: 80px 0 40px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px;
+            font-weight: 800;
+        }
+        h2::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,0,0,0.05), transparent); }
+
+        /* --- VISION BOX (STYLE VERRE) --- */
+        .vision-box {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 1);
+            padding: 50px; 
+            border-radius: 35px; 
+            margin-bottom: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vision-box::before {
+            content: "PROTOCOL ACTIVE";
+            position: absolute; top: 20px; right: 30px;
+            font-family: 'Orbitron'; font-size: 0.55rem; color: #00b4cc; opacity: 0.5; letter-spacing: 1px;
+        }
+
+        .vision-box h3 { 
+            font-family: 'Orbitron';
+            color: var(--text-main); 
+            margin-bottom: 25px; 
+            font-size: 1.4rem; 
+            letter-spacing: 1px;
+        }
+        .vision-box p { color: var(--text-secondary); font-size: 1.05rem; }
+
+        /* --- GRILLE DES PILIERS --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 1);
+            padding: 40px; 
+            border-radius: 30px; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(10px);
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.1);
+            border-color: var(--lumy-cyan);
+        }
+        .card i { font-size: 2.2rem; color: #00b4cc; margin-bottom: 25px; display: block; }
+        .card h3 { font-family: 'Orbitron'; font-size: 0.85rem; margin-bottom: 15px; color: var(--text-main); letter-spacing: 1px; }
+        .card p { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* --- BADGES ÉQUIPE (STYLE ÉPURÉ) --- */
+        .team-badge {
+            display: flex; align-items: center; gap: 25px;
+            background: var(--glass-bg); 
+            padding: 30px;
+            border-radius: 25px; 
+            border: 1px solid rgba(255, 255, 255, 1);
+            transition: 0.3s;
+        }
+        .team-badge:hover { 
+            background: #ffffff;
+            border-color: var(--lumy-purple);
+            box-shadow: 0 10px 30px rgba(180, 0, 255, 0.08);
+        }
+        .team-badge .role { font-family: 'Orbitron'; font-size: 0.6rem; color: var(--lumy-purple); margin-bottom: 6px; text-transform: uppercase; font-weight: 900; letter-spacing: 1px; }
+        .team-badge .name { font-size: 1.1rem; color: var(--text-main); font-weight: 700; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; letter-spacing: 3px; }
+            .hero-mission { padding: 50px 20px; border-radius: 30px; }
+            .vision-box { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="container">
+    <div class="hero-mission">
+        <h1>MISSION</h1>
+        <p>Forger un avenir numérique souverain, où la technologie s'adapte à l'humain, et non l'inverse.</p>
+    </div>
+
+    <h2>Architecture & Vision</h2>
+    <div class="vision-box">
+        <h3>L'Écosystème AuraOS</h3>
+        <p>
+            <strong>AuraOS</strong> n'est pas une simple alternative. C'est un manifeste technologique. 
+            Développé sur une base <strong>Noyau Pur</strong>, notre système est conçu pour l'élite : une latence zéro, une empreinte RAM minimale (500 Mo au démarrage) et une interface fluide aux couleurs Aura.
+            <br><br>
+            La <strong>Lumy Corporation</strong> agit comme une "maison-mère" pour les talents de demain. À travers notre label, nous formons une communauté d'experts capables de transformer des idées en startups indépendantes.
+        </p>
+    </div>
+
+    <h2>Les Piliers de la Corporation</h2>
+    <div class="grid">
+        <div class="card">
+            <i class="fas fa-microchip"></i>
+            <h3>Performance Pure</h3>
+            <p>Optimisation atomique du Kernel pour garantir que chaque cycle de votre processeur soit dédié à votre productivité, pas aux processus d'arrière-plan inutiles.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-fingerprint"></i>
+            <h3>Identité Souveraine</h3>
+            <p>Vos données sont votre propriété. Nous fournissons les outils de chiffrement et d'infrastructure pour garantir une confidentialité absolue, sans compromis.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Élite Program</h3>
+            <p>Un incubateur technologique unique. Nous sélectionnons les meilleurs étudiants pour les aider à créer leurs propres entreprises sous le label d'excellence Lumy.</p>
+        </div>
+    </div>
+
+    <h2>Commandement</h2>
+    <div class="grid">
+        <div class="team-badge">
+            <i class="fas fa-user-shield" style="color: #00b4cc; font-size: 1.5rem;"></i>
+            <div><p class="role">Président & Lead Architect</p><p class="name">Théo Paul RABILLARD</p></div>
+        </div>
+        <div class="team-badge">
+            <i class="fas fa-users-gear" style="color: var(--lumy-purple); font-size: 1.5rem;"></i>
+            <div><p class="role">Infrastructure</p><p class="name">Ambassadeurs du Label</p></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#001a33" },
+        "opacity": { "value": 0.2 },
+        "size": { "value": 2, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#001a33", "opacity": 0.1, "width": 1 },
+        "move": { "enable": true, "speed": 0.6 }
+    },
+    "interactivity": {
+        "events": { "onhover": { "enable": true, "mode": "grab" } }
+    },
+    "retina_detect": true
+});
+</script>
+
+</body>
+</html>

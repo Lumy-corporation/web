@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Pro | LUMY CORPORATION</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-RBK1P68BP9');
+    </script>
+    <script src="cookies.js" defer></script> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+
+    <style>
+        :root {
+            --lumy-cyan: #00f2ff;
+            --lumy-purple: #b400ff;
+            /* Fond légèrement plus grisé pour faire ressortir le blanc de la carte */
+            --bg-ultra-light: #f0f0f3; 
+            --text-main: #1d1d1f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
+        body {
+            background-color: var(--bg-ultra-light);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 130px;
+        }
+
+        /* --- FOND RENFORCÉ (Particules & Gradients plus sombres) --- */
+        #particles-js {
+            position: fixed; width: 100%; height: 100%;
+            top: 0; left: 0; z-index: -1;
+            /* Gradients de fond rendus plus opaques (0.05 -> 0.12) */
+            background: radial-gradient(circle at 85% 15%, rgba(0, 242, 255, 0.12), transparent 50%),
+                        radial-gradient(circle at 15% 85%, rgba(180, 0, 255, 0.12), transparent 50%);
+        }
+
+        /* --- CARTE DE FORMULAIRE --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85); /* Plus opaque pour contraster avec le fond sombre */
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 40px;
+            padding: 60px;
+            max-width: 720px;
+            width: 92%;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.07);
+            margin-bottom: 120px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            margin-bottom: 45px;
+            text-align: center;
+            background: linear-gradient(90deg, var(--text-main), #00b4cc, #9b00db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        /* --- STYLE DES INPUTS --- */
+        .form-group {
+            margin-bottom: 28px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.72rem;
+            color: #55555a;
+            margin-bottom: 12px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        label i { color: #00b4cc; margin-right: 8px; opacity: 0.8; }
+
+        input, textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 18px;
+            padding: 18px 22px;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #00b4cc;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0, 242, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        textarea {
+            height: 160px;
+            resize: none;
+            line-height: 1.6;
+        }
+
+        /* --- BOUTON SUBMIT PREUIM --- */
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            border-radius: 20px;
+            background: var(--text-main);
+            border: none;
+            color: white;
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #00f2ff, #b400ff);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(0, 242, 255, 0.25);
+        }
+
+        @media (max-width: 650px) {
+            .glass-card { padding: 40px 30px; }
+            h1 { font-size: 1.5rem; letter-spacing: 3px; }
+            body { padding-top: 110px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="glass-card">
+    <h1>CONTACT PRO</h1>
+    
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label><i class="fas fa-user"></i> Identité / Nom de l'entité</label>
+            <input type="text" placeholder="Théo Paul Rabillard..." required>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Canal de réponse (Email)</label>
+            <input type="email" placeholder="votre-email@exemple.com" required>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-tag"></i> Objet de la requête</label>
+            <input type="text" placeholder="Partenariat, Bug LumyOS, Recrutement..." required>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-comment-alt"></i> Message</label>
+            <textarea placeholder="Décrivez votre projet ou votre question en détail..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Transmettre à l'unité Aura</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    // --- CONFIGURATION PARTICULES RENFORCÉE ---
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { 
+                "value": 90, // Nombre de particules DOUBLÉ (45 -> 90)
+                "density": { "enable": true, "value_area": 800 }
+            },
+            /* Couleur changée du Cyan très clair au Bleu Nuit pour le contraste */
+            "color": { "value": "#001a33" }, 
+            "opacity": { 
+                "value": 0.4, // Opacité augmentée (0.2 -> 0.4)
+                "random": false 
+            },
+            "size": { 
+                "value": 2.5, 
+                "random": true 
+            },
+            /* Lignes de connexion renforcées */
+            "line_linked": { 
+                "enable": true, 
+                "distance": 150, 
+                "color": "#001a33", // Couleur sombre pour les lignes
+                "opacity": 0.3, // Opacité de ligne TRIPLÉE (0.1 -> 0.3)
+                "width": 1
+            },
+            "move": { 
+                "enable": true, 
+                "speed": 0.6, // Mouvement lent et fluide
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": { "enable": true, "mode": "grab" }, // Grab au survol
+                "onclick": { "enable": true, "mode": "push" },
+                "resize": true
+            },
+            "modes": {
+                "grab": { "distance": 200, "line_linked": { "opacity": 0.6 } },
+                "push": { "particles_nb": 4 }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
+
+</body>
+</html>
