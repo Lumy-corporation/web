@@ -143,7 +143,7 @@
                         UNITÉ D'ÉLITE NUMÉRIQUE
                     </p>
                     <p class="footer-credits">
-                        AuraOS v1.0 • STATUS: <span style="color:#00f2ff">OPERATIONAL</span> • BUILD: 2026.03.07
+                        LumyOS v1.0 • STATUS: <span style="color:#00f2ff">OPERATIONAL</span> • BUILD: 2026.03.07
                     </p>
                 </div>
             </div>
