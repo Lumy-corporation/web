@@ -9,7 +9,7 @@
 
         const footerHTML = `
         <style>
-            /* --- CONFIGURATION FOOTER LUMY (MODE JOUR PAR DÉFAUT) --- */
+            /* --- CONFIGURATION FOOTER LUMY --- */
             .lumy-footer {
                 width: 100%; background: rgba(245, 245, 247, 0.7); padding: 80px 5% 40px;
                 margin-top: 60px; position: relative; font-family: 'Inter', sans-serif;
@@ -18,7 +18,6 @@
                 transition: background 0.5s ease, color 0.5s ease;
             }
 
-            /* AJOUT DU MODE SOMBRE POUR LE FOOTER */
             [data-theme="dark"] .lumy-footer {
                 background: rgba(10, 10, 12, 0.85);
                 border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -36,7 +35,6 @@
                 transition: background 0.5s ease, border 0.5s ease;
             }
 
-            /* CARTES BENTO EN MODE SOMBRE */
             [data-theme="dark"] .footer-bento-card {
                 background: rgba(26, 26, 30, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.05);
@@ -44,7 +42,6 @@
 
             .footer-brand h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; letter-spacing: 4px; background: linear-gradient(90deg, #1d1d1f, #b400ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 20px 0; font-weight: 900; }
             
-            /* Titre plus clair en mode sombre */
             [data-theme="dark"] .footer-brand h3 {
                 background: linear-gradient(90deg, #ffffff, #b400ff);
                 -webkit-background-clip: text;
@@ -76,8 +73,11 @@
             .footer-social-bar a:hover { color: #00f2ff; transform: scale(1.3) translateY(-3px); }
             
             .footer-bottom { grid-column: span 3; margin-top: 40px; text-align: center; }
-            .footer-info { font-size: 0.65rem; color: #86868b; letter-spacing: 1px; line-height: 1.8; }
-            .footer-credits { margin-top: 15px; font-size: 0.6rem; color: #d2d2d7; font-family: monospace; text-transform: uppercase; }
+            .footer-info { font-size: 0.7rem; color: #86868b; letter-spacing: 0.5px; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+            .footer-info strong { color: #1d1d1f; }
+            [data-theme="dark"] .footer-info strong { color: #ffffff; }
+
+            .footer-credits { margin-top: 20px; font-size: 0.6rem; color: #d2d2d7; font-family: monospace; text-transform: uppercase; }
             
             .btn-reset-cookies { 
                 background: #1d1d1f; color: white; border: none; padding: 10px 18px; 
@@ -132,18 +132,19 @@
                         <a href="https://www.reddit.com/r/lumy_corporation/"><i class="fab fa-reddit-alien"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.instagram.com/lumy_corporation/"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.youtube.com/channel/UCVrshDBH5LeavlB78M9WJQg"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.linkedin.com/company/lumy-corporation/"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-bottom">
                     <p class="footer-info">
-                        © 2026 <strong>LUMY CORPORATION</strong> — ISSOIRE, FRANCE<br>
-                        UNITÉ D'ÉLITE NUMÉRIQUE
+                        © 2026 <strong>LUMY CORPORATION</strong> — Association Loi 1901 à but non lucratif<br>
+                        <strong>RNA :</strong> W633005785 — <strong>SIREN :</strong> 102 450 350 — <strong>SIRET :</strong> 102 450 350  00016<br>
+                        <strong>APE :</strong> 9499Z<br>
+                        Siège Social : Issoire (63500), France
                     </p>
                     <p class="footer-credits">
-                        LumyOS v1.0 • STATUS: <span style="color:#00f2ff">OPERATIONAL</span> • BUILD: 2026.03.07
                     </p>
                 </div>
             </div>
