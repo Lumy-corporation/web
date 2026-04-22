@@ -1,4 +1,24 @@
 (function() {
+    // --- 1. INJECTION DE LA FAVICON (INDISPENSABLE POUR LES 15 PAGES) ---
+    const injectFavicon = function() {
+        // Supprime l'ancienne icône si elle existe pour éviter les conflits
+        const existingFavicon = document.querySelector("link[rel*='icon']");
+        if (existingFavicon) existingFavicon.remove();
+
+        const link = document.createElement('link');
+        link.type = 'image/png';
+        link.rel = 'shortcut icon';
+        link.href = 'logo.png'; // Chemin relatif pour GitHub Pages
+        document.head.appendChild(link);
+        
+        // Version Apple
+        const appleLink = document.createElement('link');
+        appleLink.rel = 'apple-touch-icon';
+        appleLink.href = 'logo.png';
+        document.head.appendChild(appleLink);
+    };
+
+    // --- 2. INJECTION DE LA NAVBAR ---
     const injectLumyNavbar = function() {
         if (document.getElementById('lumy-navbar-permanent')) return;
 
@@ -14,12 +34,11 @@
                 transition: all 0.5s ease;
             }
 
-            /* --- ADAPTATION SCROLL & THEME --- */
             .navbar.scrolled {
                 height: 70px; 
-                background: var(--bento-bg); /* Utilise le fond adaptatif de l'index */
+                background: var(--bento-bg, rgba(255,255,255,0.8)); 
                 backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-                border-bottom: 1px solid var(--bento-border);
+                border-bottom: 1px solid var(--bento-border, rgba(0,0,0,0.1));
             }
 
             .nav-logo {
@@ -30,12 +49,10 @@
             }
 
             .nav-links { display: flex; gap: 5px; align-items: center; }
-
             .nav-item { position: relative; padding: 10px 0; }
             
-            /* --- COULEUR DE TEXTE DYNAMIQUE --- */
             .nav-link-main {
-                color: var(--text-main) !important; /* Force l'utilisation de la couleur de l'index */
+                color: var(--text-main, #1d1d1f) !important;
                 text-decoration: none; font-size: 0.65rem;
                 font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
                 padding: 12px 18px; border-radius: 12px; transition: 0.3s;
@@ -47,13 +64,12 @@
                 backdrop-filter: blur(10px);
             }
 
-            /* --- LE MENU DÉROULANT (DROPDOWN) --- */
             .dropdown-menu {
                 position: absolute; top: 100%; left: 50%; 
                 transform: translateX(-50%) translateY(10px);
-                background: var(--bento-bg); /* S'adapte au mode nuit */
+                background: var(--bento-bg, white);
                 backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-                border: 1px solid var(--bento-border);
+                border: 1px solid var(--bento-border, rgba(0,0,0,0.1));
                 border-radius: 20px; min-width: 200px; padding: 10px;
                 box-shadow: 0 20px 40px rgba(0,0,0,0.1);
                 opacity: 0; visibility: hidden;
@@ -65,7 +81,7 @@
             }
 
             .dropdown-menu a {
-                color: var(--text-main) !important; /* Texte blanc en mode nuit */
+                color: var(--text-main, #1d1d1f) !important;
                 text-decoration: none; font-size: 0.6rem;
                 font-weight: 700; text-transform: uppercase; display: block;
                 padding: 12px 15px; border-radius: 10px; transition: 0.2s;
@@ -77,11 +93,9 @@
                 padding-left: 20px;
             }
 
-            /* Flèche rotative */
-            .nav-item i { transition: transform 0.3s; font-size: 0.5rem; color: var(--text-main); }
+            .nav-item i { transition: transform 0.3s; font-size: 0.5rem; color: var(--text-main, #1d1d1f); }
             .nav-item:hover i { transform: rotate(180deg); }
 
-            /* Bouton Postuler (Reste toujours en couleur) */
             .btn-apply {
                 background: linear-gradient(90deg, #00f2ff, #b400ff);
                 color: white !important; border-radius: 100px !important;
@@ -123,7 +137,6 @@
 
         document.body.insertAdjacentHTML('afterbegin', navbarHTML);
 
-        // Effet scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('lumy-navbar-permanent');
             if (window.scrollY > 50) nav.classList.add('scrolled');
@@ -131,20 +144,12 @@
         });
     };
 
-    if (document.body) injectLumyNavbar();
-    else document.addEventListener("DOMContentLoaded", injectLumyNavbar);
-})();
-// Injection automatique de la favicon sur toutes les pages
-(function() {
-    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-    link.type = 'image/png';
-    link.rel = 'shortcut icon';
-    link.href = '/logo.png'; 
-    document.getElementsByTagName('head')[0].appendChild(link);
+    // --- 3. EXÉCUTION ---
+    injectFavicon(); // On injecte l'image direct
     
-    // Pour iOS / Apple
-    var appleLink = document.querySelector("link[rel*='apple-touch-icon']") || document.createElement('link');
-    appleLink.rel = 'apple-touch-icon';
-    appleLink.href = '/logo.png';
-    document.getElementsByTagName('head')[0].appendChild(appleLink);
+    if (document.body) {
+        injectLumyNavbar();
+    } else {
+        document.addEventListener("DOMContentLoaded", injectLumyNavbar);
+    }
 })();
