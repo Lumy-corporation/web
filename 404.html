@@ -1,33 +1,192 @@
 <!DOCTYPE html>
-<html> 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found</title>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ERREUR 404 | TERMINAL NON RÉPERTORIÉ | LUMY CORPORATION</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
-      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-RBK1P68BP9');
+    </script>
+    
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --lumy-cyan: #00f2ff;
+            --lumy-purple: #b400ff;
+            --bg-ultra-light: #f0f0f3;
+            --text-main: #1d1d1f;
+            --text-secondary: #424245;
+            --glass-bg: rgba(255, 255, 255, 0.4); 
+            --glass-border: rgba(255, 255, 255, 0.8);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            background: var(--bg-ultra-light); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Pour centrer verticalement */
+            padding-top: 140px; /* Espace pour ta navbar */
+        }
+
+        /* --- FOND PARTICULES & AURA (Repris) --- */
+        #particles-js {
+            position: fixed; width: 100%; height: 100%;
+            top: 0; left: 0; z-index: -1;
+            background: radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.15), transparent 45%),
+                        radial-gradient(circle at 90% 90%, rgba(180, 0, 255, 0.1), transparent 45%);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; text-align: center; }
+
+        /* --- PANNEAU GLASSMORPHISM (Repris) --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 80px 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        h1, h2 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+
+        /* --- TITRE GÉANT 404 NÉON --- */
+        .error-code { 
+            font-size: 8rem;
+            font-weight: 900;
+            letter-spacing: 15px;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--lumy-cyan), var(--lumy-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            position: relative;
+            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4));
+        }
+
+        h2 { 
+            color: var(--text-main);
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            font-weight: 800;
+            margin-top: -20px;
+        }
+
+        p { 
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 10px 0;
+        }
+
+        .accent { color: var(--lumy-cyan); font-weight: 700; }
+
+        /* --- BOUTON DE RETOUR (Style Lumy) --- */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 40px;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(180, 0, 255, 0.1));
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--text-main);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            border-color: var(--lumy-cyan);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.2), rgba(180, 0, 255, 0.2));
+        }
+
+        .back-btn i {
+            color: var(--lumy-purple);
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover i {
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 600px) {
+            .glass-panel { padding: 50px 20px; border-radius: 30px; }
+            .error-code { font-size: 5rem; letter-spacing: 8px; }
+            h2 { font-size: 1rem; letter-spacing: 3px; }
+            p { font-size: 0.9rem; }
+            .back-btn { padding: 15px 25px; font-size: 0.8rem; }
+        }
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>404</h2>
-      <h1>Page Not Found</h1>
-      <p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
-      <h3>Why am I seeing this?</h3>
-      <p>This page was generated by the Firebase Command-Line Interface. To modify it, edit the <code>404.html</code> file in your project's configured <code>public</code> directory.</p>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="container">
+    <div class="glass-panel">
+        <div class="error-code">404</div>
+        <h2>TERMINAL INTROUVABLE</h2>
+        
+        <p>Alerte Unité Issoire-01. Les protocoles de navigation ont échoué.</p>
+        <p>Le terminal réseau que vous tentez de rejoindre n'existe pas ou a été déplacé vers une <span class="accent">zone de quarantaine sécurisée</span>.</p>
+        
+        <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.7; font-style: italic;">Code d'erreur : ERR_TERMINAL_NOT_INDEXED</p>
+
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            RETOUR AU POINT D'ORIGINE
+        </a>
     </div>
-  </body>
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#001a33" },
+        "opacity": { "value": 0.3 },
+        "size": { "value": 2.5, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#001a33", "opacity": 0.1, "width": 1 },
+        "move": { "enable": true, "speed": 0.8 }
+    },
+    "interactivity": {
+        "events": { "onhover": { "enable": true, "mode": "grab" } }
+    },
+    "retina_detect": true
+});
+</script>
+
+</body>
 </html>
