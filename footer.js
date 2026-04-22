@@ -105,6 +105,11 @@
                         <p class="contact-label">Sécurité & Données</p>
                         <a href="mailto:security@lumycorp.com" class="footer-contact-link">security@lumycorp.com</a>
                     </div>
+
+                     <div class="contact-group" style="margin-top:8px;">
+                        <p class="contact-label">Nous contacter</p>
+                        <a href="mailto:contact@lumycorp.com" class="footer-contact-link">contact@lumycorp.com</a>
+                    </div>
                 </div>
 
                 <div class="footer-bento-card footer-nav">
