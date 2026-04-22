@@ -134,3 +134,9 @@
     if (document.body) injectLumyNavbar();
     else document.addEventListener("DOMContentLoaded", injectLumyNavbar);
 })();
+
+var link = document.createElement('link');
+link.rel = 'icon';
+link.href = '/logo.png';
+link.type = 'image/png';
+document.head.appendChild(link);
