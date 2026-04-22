@@ -134,9 +134,17 @@
     if (document.body) injectLumyNavbar();
     else document.addEventListener("DOMContentLoaded", injectLumyNavbar);
 })();
-
-var link = document.createElement('link');
-link.rel = 'icon';
-link.href = '/logo.png';
-link.type = 'image/png';
-document.head.appendChild(link);
+// Injection automatique de la favicon sur toutes les pages
+(function() {
+    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/png';
+    link.rel = 'shortcut icon';
+    link.href = '/logo.png'; 
+    document.getElementsByTagName('head')[0].appendChild(link);
+    
+    // Pour iOS / Apple
+    var appleLink = document.querySelector("link[rel*='apple-touch-icon']") || document.createElement('link');
+    appleLink.rel = 'apple-touch-icon';
+    appleLink.href = '/logo.png';
+    document.getElementsByTagName('head')[0].appendChild(appleLink);
+})();
