@@ -182,7 +182,6 @@
         padding: 0 20px;
     }
 
-    /* La barre qui traverse la page */
     .pole-header {
         width: 100%;
         background: linear-gradient(90deg, var(--lumy-cyan), var(--lumy-purple));
@@ -203,7 +202,6 @@
         text-transform: uppercase;
     }
 
-    /* La grille de carrés sous chaque barre */
     .postes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -215,7 +213,7 @@
         border: 1px solid var(--bento-border);
         border-radius: 20px;
         padding: 25px;
-        aspect-ratio: 1 / 1; /* Force le carré */
+        aspect-ratio: 1 / 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -223,18 +221,20 @@
         text-align: center;
         backdrop-filter: blur(10px);
         transition: all 0.3s ease;
+        /* Couleur par défaut (Cyan) */
+        --btn-color: var(--lumy-cyan); 
     }
 
     .poste-card:hover {
         transform: scale(1.05);
-        border-color: var(--lumy-cyan);
-        box-shadow: 0 15px 30px rgba(0, 242, 255, 0.1);
+        border-color: var(--btn-color);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
 
     .poste-card i {
         font-size: 2rem;
         margin-bottom: 15px;
-        background: linear-gradient(135deg, var(--lumy-cyan), var(--lumy-purple));
+        background: linear-gradient(135deg, var(--btn-color), #fff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -256,11 +256,11 @@
         display: block;
     }
 
-    /* --- STYLE DU BOUTON POSTULER --- */
+    /* --- STYLE DU BOUTON POSTULER ADAPTATIF --- */
     .btn-postuler {
         background: transparent;
-        border: 1px solid var(--lumy-cyan);
-        color: var(--lumy-cyan) !important;
+        border: 1px solid var(--btn-color);
+        color: var(--btn-color) !important;
         padding: 8px 15px;
         border-radius: 8px;
         font-family: 'Orbitron';
@@ -272,9 +272,9 @@
     }
 
     .poste-card:hover .btn-postuler {
-        background: var(--lumy-cyan);
+        background: var(--btn-color);
         color: #000 !important;
-        box-shadow: 0 0 10px var(--lumy-cyan);
+        box-shadow: 0 0 15px var(--btn-color);
     }
 </style>
 
@@ -283,19 +283,19 @@
         <h2><i class="fas fa-microchip"></i> Pôle OS & Kernel</h2>
     </div>
     <div class="postes-grid">
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #00f2ff;">
             <i class="fas fa-terminal"></i>
             <h4>Développeur Kernel</h4>
             <span>C++ / Rust / Liquorix</span>
             <a href="#" class="btn-postuler">Postuler</a>
         </div>
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #00f2ff;">
             <i class="fas fa-desktop"></i>
             <h4>UI Designer Zen</h4>
             <span>KDE Plasma / GTK</span>
             <a href="#" class="btn-postuler">Postuler</a>
         </div>
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #00f2ff;">
             <i class="fas fa-layer-group"></i>
             <h4>Architecte Structure</h4>
             <span>Low Latency / RAM Opti</span>
@@ -309,40 +309,22 @@
         <h2><i class="fas fa-code"></i> Pôle Web & Cloud</h2>
     </div>
     <div class="postes-grid">
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #b400ff;">
             <i class="fab fa-html5"></i>
             <h4>Expert HTML5</h4>
             <span>Sémantique & SEO</span>
             <a href="#" class="btn-postuler">Postuler</a>
         </div>
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #b400ff;">
             <i class="fab fa-css3-alt"></i>
             <h4>Designer CSS</h4>
             <span>Animations & Responsive</span>
             <a href="#" class="btn-postuler">Postuler</a>
         </div>
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #b400ff;">
             <i class="fab fa-js"></i>
             <h4>Dev JavaScript</h4>
             <span>ES6+ / Logique Web</span>
-            <a href="#" class="btn-postuler">Postuler</a>
-        </div>
-        <div class="poste-card">
-            <i class="fab fa-react"></i>
-            <h4>Front-end Dev</h4>
-            <span>React / Tailwind CSS</span>
-            <a href="#" class="btn-postuler">Postuler</a>
-        </div>
-        <div class="poste-card">
-            <i class="fas fa-server"></i>
-            <h4>Back-end Dev</h4>
-            <span>Node.js / API Rest</span>
-            <a href="#" class="btn-postuler">Postuler</a>
-        </div>
-        <div class="poste-card">
-            <i class="fas fa-database"></i>
-            <h4>Database Admin</h4>
-            <span>PostgreSQL / Redis</span>
             <a href="#" class="btn-postuler">Postuler</a>
         </div>
     </div>
@@ -353,19 +335,19 @@
         <h2><i class="fas fa-camera-retro"></i> Pôle Médias & Sociaux</h2>
     </div>
     <div class="postes-grid">
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #ff0055;">
             <i class="fas fa-video"></i>
             <h4>Monteur Vidéo</h4>
             <span>VFX / After Effects</span>
             <a href="#" class="btn-postuler">Postuler</a>
         </div>
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #ff0055;">
             <i class="fas fa-pen-nib"></i>
             <h4>Graphiste</h4>
             <span>Identité Visuelle</span>
             <a href="#" class="btn-postuler">Postuler</a>
         </div>
-        <div class="poste-card">
+        <div class="poste-card" style="--btn-color: #ff0055;">
             <i class="fas fa-lightbulb"></i>
             <h4>Creative Lead</h4>
             <span>Idées & Stratégie Posts</span>
@@ -374,6 +356,26 @@
     </div>
 </div>
 
+<div class="pole-section">
+    <div class="pole-header" style="background: linear-gradient(90deg, #ffcc00, #ff8800);">
+        <h2><i class="fas fa-briefcase"></i> Pôle Administratif & RH</h2>
+    </div>
+    <div class="postes-grid">
+        <div class="poste-card" style="--btn-color: #ffcc00;">
+            <i class="fas fa-users"></i>
+            <h4>Responsable RH</h4>
+            <span>Recrutement & Suivi</span>
+            <a href="#" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card" style="--btn-color: #ffcc00;">
+            <i class="fas fa-bullhorn"></i>
+            <h4>Gestion Ambassadeurs</h4>
+            <span>Réseau Étudiants</span>
+            <a href="#" class="btn-postuler">Postuler</a>
+        </div>
+    </div>
+</div>
+    
 <div class="pole-section">
     <div class="pole-header" style="background: linear-gradient(90deg, #ffcc00, #ff8800);">
         <h2><i class="fas fa-briefcase"></i> Pôle Administratif & RH</h2>
