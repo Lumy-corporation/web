@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMY CORP | Recruitment Center</title>
+    <title>LUMY CORPORATION | Future of Engineering</title>
     
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
-    <meta name="description" content="Rejoignez l'élite de Lumy Corporation. Missions système, web et réseau.">
+    <meta name="description" content="LUMY CORPORATION - Unité d'élite technologique spécialisée dans le développement d'écosystèmes numériques innovants.">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -25,6 +25,7 @@
             --lid-bg: #ffffff;
         }
 
+        /* --- CONFIGURATION MODE SOMBRE --- */
         [data-theme="dark"] {
             --bg-ultra-light: #0a0a0c;
             --text-main: #f5f5f7;
@@ -35,9 +36,16 @@
             --lid-bg: #1a1a1e;
         }
 
-        [data-theme="dark"] a, [data-theme="dark"] p, [data-theme="dark"] h1, 
-        [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, 
-        [data-theme="dark"] span, [data-theme="dark"] li, [data-theme="dark"] i,
+        /* MASTER FIX : Force le blanc pour TOUS les textes en mode sombre */
+        [data-theme="dark"] a, 
+        [data-theme="dark"] p, 
+        [data-theme="dark"] h1, 
+        [data-theme="dark"] h2, 
+        [data-theme="dark"] h3, 
+        [data-theme="dark"] h4, 
+        [data-theme="dark"] span, 
+        [data-theme="dark"] li, 
+        [data-theme="dark"] i,
         [data-theme="dark"] div:not(.screen-ui) {
             color: #f5f5f7 !important;
         }
@@ -73,7 +81,7 @@
         }
 
         .hero {
-            height: 80vh; display: flex; flex-direction: column;
+            height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center; padding: 0 10%;
         }
 
@@ -86,9 +94,10 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 6rem);
             font-weight: 800; letter-spacing: -3px;
             line-height: 0.9; margin-bottom: 30px;
+            min-height: 1.2em;
         }
 
         .hero h1 span {
@@ -104,31 +113,31 @@
         .bento-container {
             max-width: 1200px; margin: 0 auto 100px;
             display: grid; grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 300px; gap: 25px; padding: 20px;
+            grid-auto-rows: 350px; gap: 25px; padding: 20px;
         }
 
         .bento-item {
-            background: var(--bento-bg); border-radius: 32px; padding: 35px;
+            background: var(--bento-bg); border-radius: 32px; padding: 45px;
             backdrop-filter: blur(20px); border: 1px solid var(--bento-border); 
             display: flex; flex-direction: column; justify-content: space-between;
-            transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.8s ease;
             position: relative; overflow: hidden;
         }
 
         .bento-item:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
-        .big { grid-column: span 3; height: 350px; }
+        .big { grid-column: span 3; }
 
-        .bento-item h3 { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 2px; color: #86868b; text-transform: uppercase; }
-        .bento-item p { font-size: 1.4rem; font-weight: 700; margin-top: 15px; }
+        .bento-item h3 { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 3px; color: #86868b; text-transform: uppercase; }
+        .bento-item p { font-size: 1.8rem; font-weight: 700; margin-top: 15px; max-width: 600px; }
 
-        .system-stats { display: flex; gap: 30px; margin-top: 25px; }
+        .system-stats { display: flex; gap: 40px; margin-top: 30px; }
         .stat-box { display: flex; flex-direction: column; }
         .stat-label { font-size: 0.6rem; font-weight: 800; color: #b4b4bb; letter-spacing: 1px; }
-        .stat-value { font-family: 'Orbitron'; font-size: 1.1rem; color: #00b4cc; }
+        .stat-value { font-family: 'Orbitron'; font-size: 1.2rem; color: #00b4cc; }
 
-        .laptop-section { height: 120vh; position: relative; }
+        .laptop-section { height: 150vh; position: relative; }
         .sticky { position: sticky; top: 0; height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 1500px; }
-        .laptop { width: 600px; height: 380px; transform-style: preserve-3d; opacity: 0; transition: 0.5s; }
+        .laptop { width: 650px; height: 410px; transform-style: preserve-3d; opacity: 0; transition: 0.5s; }
         .lid { 
             position: absolute; bottom: 12px; width: 100%; height: 100%;
             background: var(--lid-bg); border-radius: 16px 16px 2px 2px;
@@ -137,11 +146,11 @@
         }
         .screen-ui { width: 100%; height: 100%; background: #000; opacity: 0; display: flex; justify-content: center; align-items: center; }
         .screen-ui h2 { color: white; font-family: 'Orbitron'; letter-spacing: 15px; font-size: 2.5rem; text-shadow: 0 0 20px var(--lumy-cyan); }
-        .base { position: absolute; bottom: 0; width: 100%; height: 14px; background: var(--laptop-base); border-radius: 0 0 25px 25px; }
+        .base { position: absolute; bottom: 0; width: 100%; height: 14px; background: var(--laptop-base); border-radius: 0 0 25px 25px; box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1); }
 
         @media (max-width: 900px) {
             .bento-container { grid-template-columns: 1fr; grid-auto-rows: auto; }
-            .big { grid-column: span 1; height: auto; }
+            .big { grid-column: span 1; }
             .laptop { width: 90%; }
         }
     </style>
@@ -159,56 +168,34 @@
 </div>
 
 <section class="hero">
-    <div class="badge" id="hero-badge">LUMY // RECRUTEMENT</div>
-    <h1>Build your<br><span id="typewriter"></span></h1>
-    <p id="hero-desc" style="color: #86868b; max-width: 600px; font-weight: 500; font-size: 1.1rem;">Rejoignez le label qui transforme les étudiants d'élite en fondateurs d'empires technologiques.</p>
+    <div class="badge" id="hero-badge">LUMY // CORE ACCESS</div>
+    <h1>Engineering<br><span id="typewriter"></span></h1>
+    <p id="hero-desc" style="color: #86868b; max-width: 550px; font-weight: 500; font-size: 1.1rem;">Lumy is the premier label empowering elite engineers to build their own technological empires.</p>
 </section>
 
 <div class="bento-container">
-    <div class="bento-item big">
+    <div class="bento-item big" style="background: linear-gradient(135deg, var(--bento-bg) 0%, var(--bento-bg) 100%);">
         <div>
-            <h3 id="recruit-title">LUMY_RECRUITMENT_CORE</h3>
-            <p id="recruit-desc" style="font-size: 2rem; max-width: 700px;">Nous cherchons les 100 prochains ingénieurs d'élite pour AuraOS.</p>
+            <h3 id="core-title">Lumy_Core_System</h3>
+            <p id="core-desc">High-performance architecture designed for absolute fluidity and power.</p>
             <div class="system-stats">
-                <div class="stat-box"><span class="stat-label">OFFRES OUVERTES</span><span class="stat-value">04</span></div>
-                <div class="stat-box"><span class="stat-label">SÉLECTION</span><span class="stat-value">TOP_100</span></div>
-                <div class="stat-box"><span class="stat-label">STATUS</span><span class="stat-value" style="color: #00ff88;">ACTIVE</span></div>
+                <div class="stat-box"><span class="stat-label">LATENCY</span><span class="stat-value">0.002ms</span></div>
+                <div class="stat-box"><span class="stat-label">KERNEL</span><span class="stat-value">LUMY_CORE</span></div>
+                <div class="stat-box"><span class="stat-label">UPTIME</span><span class="stat-value">99.9%</span></div>
             </div>
         </div>
-        <div style="position: absolute; right: 20px; bottom: -20px; font-size: 10rem; opacity: 0.03; font-weight: 900; font-family: 'Orbitron'; pointer-events: none;">JOIN</div>
-    </div>
-
-    <div class="bento-item">
-        <div>
-            <h3 style="color: var(--lumy-cyan);"><i class="fas fa-microchip"></i> MISSION_OS</h3>
-            <p id="os-desc">Développement du Kernel AuraOS & Interface Zen.</p>
-        </div>
-        <div class="stat-box">
-            <span class="stat-label">STACK</span>
-            <span class="stat-value" style="font-size: 0.8rem;">C++, RUST, KERNEL</span>
-        </div>
+        <div style="position: absolute; right: 20px; bottom: -20px; font-size: 12rem; opacity: 0.04; font-weight: 900; font-family: 'Orbitron'; pointer-events: none;">LUMY</div>
     </div>
 
     <div class="bento-item" style="background: var(--text-main); color: var(--bg-ultra-light);">
-        <div>
-            <h3 style="color: var(--lumy-purple);"><i class="fas fa-code"></i> MISSION_WEB</h3>
-            <p id="web-desc" style="color: white !important;">Architecture Cloud & Plateforme LumyCorp.</p>
-        </div>
-        <div class="stat-box">
-            <span class="stat-label">STACK</span>
-            <span class="stat-value" style="font-size: 0.8rem; color: white !important;">REACT, NODE.JS, API</span>
-        </div>
+        <h3 id="net-title" style="color: #888;">GLOBAL_NETWORK</h3>
+        <p id="net-desc" style="font-size: 1.4rem;">Direct bridge to international markets.</p>
+        <i class="fas fa-network-wired" style="margin-top: 30px; font-size: 2rem; opacity: 0.2;"></i>
     </div>
 
     <div class="bento-item">
-        <div>
-            <h3 style="color: #ffcc00;"><i class="fas fa-network-wired"></i> MISSION_NET</h3>
-            <p id="net-desc">Infrastructure serveurs & Sécurité des flux.</p>
-        </div>
-        <div class="stat-box">
-            <span class="stat-label">STACK</span>
-            <span class="stat-value" style="font-size: 0.8rem;">LINUX, VPN, FIREWALL</span>
-        </div>
+        <h3 id="brand-title">Brand_Ambassador</h3>
+        <p id="brand-desc" style="font-size: 1.4rem;">Representing the peak of engineering through global influence.</p>
     </div>
 </div>
 
@@ -224,28 +211,33 @@
 </section>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="navbar.js"></script>
+<script src="footer.js"></script>
+<script src="cookies.js"></script>
 
 <script>
     const translations = {
         en: {
-            heroBadge: "LUMY // RECRUITMENT",
-            heroDesc: "Join the label that empowers elite engineers to build their own technological empires.",
-            recruitTitle: "LUMY_RECRUITMENT_CORE",
-            recruitDesc: "We are seeking the next 100 elite engineers for AuraOS.",
-            osDesc: "AuraOS Kernel development & Zen Interface.",
-            webDesc: "Cloud Architecture & LumyCorp Platform.",
-            netDesc: "Server Infrastructure & Flow Security.",
-            typewriter: ["Future", "Empire", "Legacy", "Power"]
+            heroBadge: "LUMY // CORE ACCESS",
+            heroDesc: "Lumy is the premier label empowering elite engineers to build their own technological empires.",
+            coreTitle: "Lumy_Core_System",
+            coreDesc: "High-performance architecture designed for absolute fluidity and power.",
+            netTitle: "GLOBAL_NETWORK",
+            netDesc: "Direct bridge to international markets.",
+            brandTitle: "Brand_Ambassador",
+            brandDesc: "Representing the peak of engineering through Lumy's global influence.",
+            typewriter: ["the Future", "your Empire", "Innovation", "Pure Power"]
         },
         fr: {
-            heroBadge: "LUMY // RECRUTEMENT",
-            heroDesc: "Rejoignez le label qui permet aux ingénieurs d'élite de bâtir leurs propres empires technologiques.",
-            recruitTitle: "LUMY_RECRUTEMENT_CORE",
-            recruitDesc: "Nous cherchons les 100 prochains ingénieurs d'élite pour AuraOS.",
-            osDesc: "Développement du Kernel AuraOS & Interface Zen.",
-            webDesc: "Architecture Cloud & Plateforme LumyCorp.",
-            netDesc: "Infrastructure serveurs & Sécurité des flux.",
-            typewriter: ["Futur", "Empire", "Héritage", "Puissance"]
+            heroBadge: "LUMY // ACCÈS CORE",
+            heroDesc: "Lumy est le label prestigieux qui permet aux ingénieurs d'élite de bâtir leurs propres empires technologiques.",
+            coreTitle: "Lumy_Système_Core",
+            coreDesc: "Architecture haute performance conçue pour une fluidité et une puissance absolue.",
+            netTitle: "RÉSEAU_GLOBAL",
+            netDesc: "Un pont direct vers les marchés internationaux.",
+            brandTitle: "Ambassadeur_Marque",
+            brandDesc: "Représenter le sommet de l'ingénierie à travers l'influence mondiale de Lumy.",
+            typewriter: ["le Futur", "votre Empire", "l'Innovation", "la Puissance"]
         }
     };
 
@@ -258,15 +250,17 @@
             const data = translations[currentLang];
             document.getElementById('hero-badge').innerText = data.heroBadge;
             document.getElementById('hero-desc').innerText = data.heroDesc;
-            document.getElementById('recruit-title').innerText = data.recruitTitle;
-            document.getElementById('recruit-desc').innerText = data.recruitDesc;
-            document.getElementById('os-desc').innerText = data.osDesc;
-            document.getElementById('web-desc').innerText = data.webDesc;
+            document.getElementById('core-title').innerText = data.coreTitle;
+            document.getElementById('core-desc').innerText = data.coreDesc;
+            document.getElementById('net-title').innerText = data.netTitle;
             document.getElementById('net-desc').innerText = data.netDesc;
+            document.getElementById('brand-title').innerText = data.brandTitle;
+            document.getElementById('brand-desc').innerText = data.brandDesc;
             document.body.style.opacity = 1;
         }, 500);
     }
 
+    // --- LOGIQUE MODE SOMBRE / JOUR ---
     function initTheme() {
         const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.body.setAttribute("data-theme", isDark ? "dark" : "light");
@@ -276,12 +270,12 @@
     function initParticles(color) {
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": color },
-                "opacity": { "value": 0.3 },
-                "size": { "value": 2, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": color, "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 0.8 }
+                "opacity": { "value": 0.4 },
+                "size": { "value": 2.5, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": color, "opacity": 0.3, "width": 1 },
+                "move": { "enable": true, "speed": 0.6 }
             },
             "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
             "retina_detect": true
@@ -290,10 +284,11 @@
 
     // Typewriter
     let i = 0, j = 0, isDeleting = false;
+    const typewriterElement = document.getElementById('typewriter');
+
     function loop() {
         const phrases = translations[currentLang].typewriter;
         const currentFullPhrase = phrases[i];
-        const typewriterElement = document.getElementById('typewriter');
         typewriterElement.innerHTML = isDeleting ? currentFullPhrase.substring(0, j - 1) : currentFullPhrase.substring(0, j + 1);
         j = isDeleting ? j - 1 : j + 1;
         if (!isDeleting && j === currentFullPhrase.length) { isDeleting = true; setTimeout(loop, 2000); return; }
@@ -301,7 +296,16 @@
         setTimeout(loop, isDeleting ? 60 : 120);
     }
 
-    // Scroll Laptop
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        loop();
+    });
+
+    // Écouteur de changement de thème PC
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initTheme);
+
+    // Laptop Scroll
     window.addEventListener('scroll', () => {
         const trigger = document.querySelector('.laptop-section');
         const scroll = window.scrollY - trigger.offsetTop;
@@ -315,11 +319,6 @@
             document.getElementById('ui').style.opacity = p > 0.6 ? (p - 0.6) * 2.5 : 0;
         }
     });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        initTheme();
-        loop();
-    });
 </script>
 </body>
-</html>
+</html> 
