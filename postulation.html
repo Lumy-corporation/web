@@ -118,13 +118,6 @@
             box-shadow: 0 0 0 5px rgba(0, 242, 255, 0.1);
         }
 
-        /* Style appliqué quand un poste est reçu via URL */
-        #secteur_select.active-url {
-            border-color: var(--lumy-blue-start);
-            background: rgba(0, 219, 222, 0.05);
-            box-shadow: 0 0 15px rgba(0, 219, 222, 0.2);
-        }
-
         .submit-btn {
             grid-column: span 2; padding: 25px; border-radius: 24px;
             background: var(--text-main); color: white; border: none;
@@ -137,6 +130,12 @@
             background: linear-gradient(90deg, var(--lumy-blue-start), var(--lumy-blue-end));
             box-shadow: 0 20px 40px rgba(0, 86, 255, 0.25);
             transform: scale(1.02);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
         }
 
         #footer-container { width: 100%; margin-top: auto; }
@@ -270,47 +269,67 @@
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-  
+
+    // Tes identifiants Firebase Lumy Corporation
     const firebaseConfig = {
-      apiKey: "AIzaSyAI29xQhcOUy_oC5ZnNn1nlobvYcbRMynM",
-      authDomain: "lumy-corporation.firebaseapp.com",
-      databaseURL: "https://lumy-corporation-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "lumy-corporation",
-      storageBucket: "lumy-corporation.firebasestorage.app",
-      messagingSenderId: "135746388823",
-      appId: "1:135746388823:web:7506466777b40de9b1f412"
+        apiKey: "AIzaSyCjIUOQogsQUhRgYJgN1OlErEt3FsihZuo",
+        authDomain: "lumy-corporation-1db3f.firebaseapp.com",
+        databaseURL: "https://lumy-corporation-1db3f-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "lumy-corporation-1db3f",
+        storageBucket: "lumy-corporation-1db3f.firebasestorage.app",
+        messagingSenderId: "1023452628363",
+        appId: "1:1023452628363:web:0806d0bc81436c0446db8e",
+        measurementId: "G-JTZLLB2LGM"
     };
-  
+
+    // Initialisation
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
-  
-    document.getElementById('enrollmentForm').addEventListener('submit', async (e) => {
+
+    // Gestion de l'envoi du formulaire
+    const form = document.getElementById('enrollmentForm');
+    const submitBtn = document.getElementById('btn-txt');
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        
+        // Effet visuel de chargement
+        submitBtn.disabled = true;
+        submitBtn.innerText = "TRANSMISSION EN COURS...";
+
+        const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+        
+        // Ajout d'infos automatiques
         data.date_inscription = new Date().toLocaleString("fr-FR");
         data.statut = "En attente de revue";
+        data.source = "Web Enrollment";
 
         try {
-            await set(push(ref(db, 'inscriptions')), data);
-            alert("PROTOCOLE RÉUSSI, " + data.prenom.toUpperCase() + " !");
-            e.target.reset();
+            // On envoie vers le dossier 'inscriptions' de ta base Firebase
+            const newPostRef = push(ref(db, 'inscriptions'));
+            await set(newPostRef, data);
+
+            alert("PROTOCOLE RÉUSSI, " + data.prenom.toUpperCase() + " !\nVotre candidature est maintenant dans la base Lumy.");
+            form.reset();
         } catch (error) {
-            alert("ÉCHEC DE TRANSMISSION.");
+            console.error(error);
+            alert("ÉCHEC DE TRANSMISSION. Vérifiez votre connexion ou contactez l'administration.");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = "TRANSMETTRE LA CANDIDATURE _";
         }
     });
 </script>
 
 <script>
-    /* --- SYSTÈME DE RÉCUPÉRATION DU POSTE VIA URL --- */
+    // Le reste de tes fonctions (URL poste, Langues, Particules)
     window.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const posteUrl = urlParams.get('poste'); 
-
         if (posteUrl) {
             const selectElement = document.getElementById('secteur_select');
             const nomNettoye = posteUrl.replace(/_/g, ' ');
-
             let optionExiste = false;
             for (let i = 0; i < selectElement.options.length; i++) {
                 if (selectElement.options[i].text.toLowerCase() === nomNettoye.toLowerCase() || 
@@ -320,7 +339,6 @@
                     break;
                 }
             }
-
             if (!optionExiste) {
                 const nouvelleOption = document.createElement('option');
                 nouvelleOption.value = nomNettoye;
@@ -328,12 +346,9 @@
                 nouvelleOption.selected = true;
                 selectElement.add(nouvelleOption);
             }
-            
-            selectElement.classList.add('active-url');
         }
     });
 
-    /* --- TRADUCTIONS --- */
     const translations = {
         fr: {
             badge: "ENRÔLEMENT UNITÉ // 2026",
@@ -365,7 +380,7 @@
             document.getElementById('badge-txt').innerText = d.badge;
             document.getElementById('main-title').innerHTML = d.title;
             document.getElementById('h-id').innerText = d.hId;
-            document.getElementById('h-info').innerText = d.hId;
+            document.getElementById('h-info').innerText = d.hInfo;
             document.getElementById('h-edu').innerText = d.hEdu;
             document.getElementById('h-sector').innerText = d.hSector;
             document.getElementById('h-link').innerText = d.hLink;
@@ -385,18 +400,16 @@
         }, 400);
     }
 
-    /* --- PARTICULES --- */
     particlesJS("particles-js", {
         "particles": {
-            "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
             "color": { "value": "#001a33" },
-            "opacity": { "value": 0.4, "random": false },
+            "opacity": { "value": 0.4 },
             "size": { "value": 2.5, "random": true },
             "line_linked": { "enable": true, "distance": 150, "color": "#001a33", "opacity": 0.3, "width": 1 },
             "move": { "enable": true, "speed": 0.6 }
         },
-        "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
-        "retina_detect": true
+        "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } }
     });
 </script>
 </body>
