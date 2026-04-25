@@ -14,40 +14,26 @@
     
     <style>
         :root {
+            /* Palette Image 2 : Cyan, Pourpre léger et Blanc cassé */
             --lumy-cyan: #00f2ff;
             --lumy-purple: #b400ff;
-            --bg-ultra-light: #f0f0f3;
+            --bg-ultra-light: #f5f7fa; /* Fond très clair comme l'image 2 */
             --text-main: #1d1d1f;
-            --bento-bg: rgba(255, 255, 255, 0.8);
-            --bento-border: rgba(0,0,0,0.04);
+            --bento-bg: rgba(255, 255, 255, 0.7);
+            --bento-border: rgba(0, 180, 204, 0.1);
             --badge-bg: white;
             --laptop-base: #d2d2d7;
             --lid-bg: #ffffff;
         }
 
-        /* --- CONFIGURATION MODE SOMBRE --- */
         [data-theme="dark"] {
             --bg-ultra-light: #0a0a0c;
             --text-main: #f5f5f7;
-            --bento-bg: rgba(20, 20, 25, 0.85);
+            --bento-bg: rgba(20, 20, 25, 0.8);
             --bento-border: rgba(255, 255, 255, 0.08);
             --badge-bg: #1a1a1e;
             --laptop-base: #2c2c2e;
             --lid-bg: #1a1a1e;
-        }
-
-        /* MASTER FIX : Force le blanc pour TOUS les textes en mode sombre */
-        [data-theme="dark"] a, 
-        [data-theme="dark"] p, 
-        [data-theme="dark"] h1, 
-        [data-theme="dark"] h2, 
-        [data-theme="dark"] h3, 
-        [data-theme="dark"] h4, 
-        [data-theme="dark"] span, 
-        [data-theme="dark"] li, 
-        [data-theme="dark"] i,
-        [data-theme="dark"] div:not(.screen-ui) {
-            color: #f5f5f7 !important;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
@@ -58,22 +44,27 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             line-height: 1.5;
-            transition: background-color 0.8s ease, color 0.8s ease, opacity 0.5s;
+            transition: background-color 0.8s ease;
         }
 
+        /* --- FOND IMAGE 2 : Gradient Discret & Particules --- */
         #particles-js {
             position: fixed; width: 100%; height: 100%;
             top: 0; left: 0; z-index: -1;
-            background: radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.12), transparent 45%),
-                        radial-gradient(circle at 20% 80%, rgba(180, 0, 255, 0.12), transparent 45%);
+            /* Recréation du dégradé de l'image 2 */
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.08), transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(180, 0, 255, 0.08), transparent 40%),
+                linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
         }
 
         .lang-picker {
             position: fixed; bottom: 30px; right: 30px; z-index: 1000;
             background: var(--bento-bg); padding: 10px; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--bento-border);
-            display: flex; gap: 10px; align-items: center; backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--bento-border);
+            display: flex; gap: 10px; align-items: center; backdrop-filter: blur(15px);
         }
+
         .lang-picker select {
             border: none; outline: none; font-family: 'Inter'; font-weight: 700;
             font-size: 0.7rem; cursor: pointer; background: transparent; 
@@ -87,28 +78,24 @@
 
         .badge {
             background: var(--badge-bg); border: 1px solid var(--bento-border);
-            padding: 8px 16px; border-radius: 100px;
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
-            margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            color: var(--text-main);
+            padding: 8px 18px; border-radius: 100px;
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 2px;
+            margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            color: #86868b;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-size: clamp(2.8rem, 9vw, 6.5rem);
             font-weight: 800; letter-spacing: -3px;
             line-height: 0.9; margin-bottom: 30px;
-            min-height: 1.2em;
+            color: #1d1d1f;
         }
 
+        /* Gradient de l'image 2 sur "le Futur" */
         .hero h1 span {
             background: linear-gradient(90deg, #00b4cc, #9b00db);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        #typewriter::after {
-            content: '|'; margin-left: 5px; color: #00b4cc; animation: blink 0.8s infinite;
-        }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         .bento-container {
             max-width: 1200px; margin: 0 auto 100px;
@@ -118,17 +105,18 @@
 
         .bento-item {
             background: var(--bento-bg); border-radius: 32px; padding: 45px;
-            backdrop-filter: blur(20px); border: 1px solid var(--bento-border); 
+            backdrop-filter: blur(25px); border: 1px solid var(--bento-border); 
             display: flex; flex-direction: column; justify-content: space-between;
-            transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.8s ease;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
             position: relative; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
         }
 
-        .bento-item:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
+        .bento-item:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,180,204,0.1); }
         .big { grid-column: span 3; }
 
         .bento-item h3 { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 3px; color: #86868b; text-transform: uppercase; }
-        .bento-item p { font-size: 1.8rem; font-weight: 700; margin-top: 15px; max-width: 600px; }
+        .bento-item p { font-size: 1.8rem; font-weight: 700; margin-top: 15px; max-width: 600px; color: #1d1d1f; }
 
         .system-stats { display: flex; gap: 40px; margin-top: 30px; }
         .stat-box { display: flex; flex-direction: column; }
@@ -142,11 +130,11 @@
             position: absolute; bottom: 12px; width: 100%; height: 100%;
             background: var(--lid-bg); border-radius: 16px 16px 2px 2px;
             transform-origin: bottom; transform: rotateX(-90deg);
-            border: 1px solid var(--bento-border); overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.1); overflow: hidden;
         }
         .screen-ui { width: 100%; height: 100%; background: #000; opacity: 0; display: flex; justify-content: center; align-items: center; }
         .screen-ui h2 { color: white; font-family: 'Orbitron'; letter-spacing: 15px; font-size: 2.5rem; text-shadow: 0 0 20px var(--lumy-cyan); }
-        .base { position: absolute; bottom: 0; width: 100%; height: 14px; background: var(--laptop-base); border-radius: 0 0 25px 25px; box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1); }
+        .base { position: absolute; bottom: 0; width: 100%; height: 14px; background: var(--laptop-base); border-radius: 0 0 25px 25px; }
 
         @media (max-width: 900px) {
             .bento-container { grid-template-columns: 1fr; grid-auto-rows: auto; }
@@ -174,56 +162,43 @@
 </section>
 
 <div class="bento-container">
-    <div class="bento-item big" style="background: linear-gradient(135deg, var(--bento-bg) 0%, var(--bento-bg) 100%);">
+    <div class="bento-item big">
         <div>
-            <h3 id="recruit-title">LUMY_RECRUITMENT_CORE</h3>
-            <p id="recruit-desc">Rejoignez l'élite. Nous recrutons les 100 meilleurs étudiants pour bâtir le futur d'AuraOS.</p>
+            <h3 id="core-title">Lumy_Core_System</h3>
+            <p id="core-desc">High-performance architecture designed for absolute fluidity and power.</p>
             <div class="system-stats">
-                <div class="stat-box"><span class="stat-label">OFFRES OUVERTES</span><span class="stat-value">04</span></div>
-                <div class="stat-box"><span class="stat-label">STATUT</span><span class="stat-value">RECRUTEMENT_ON</span></div>
+                <div class="stat-box"><span class="stat-label">LATENCY</span><span class="stat-value">0.002ms</span></div>
+                <div class="stat-box"><span class="stat-label">KERNEL</span><span class="stat-value">LUMY_CORE</span></div>
+                <div class="stat-box"><span class="stat-label">UPTIME</span><span class="stat-value">99.9%</span></div>
             </div>
         </div>
-        <div style="position: absolute; right: 20px; bottom: -20px; font-size: 12rem; opacity: 0.04; font-weight: 900; font-family: 'Orbitron'; pointer-events: none;">JOIN</div>
+        <div style="position: absolute; right: 20px; bottom: -20px; font-size: 12rem; opacity: 0.03; font-weight: 900; font-family: 'Orbitron'; pointer-events: none;">LUMY</div>
+    </div>
+
+    <div class="bento-item" style="background: #1d1d1f; color: white;">
+        <h3 id="net-title" style="color: #888;">GLOBAL_NETWORK</h3>
+        <p id="net-desc" style="font-size: 1.4rem; color: white;">Direct bridge to international markets.</p>
+        <i class="fas fa-network-wired" style="margin-top: 30px; font-size: 2rem; opacity: 0.3; color: white;"></i>
     </div>
 
     <div class="bento-item">
-        <div>
-            <h3 style="color: var(--lumy-cyan);"><i class="fas fa-microchip"></i> MISSION_OS</h3>
-            <p style="font-size: 1.4rem;">Développement du Kernel AuraOS & Interface Zen.</p>
-        </div>
-        <div class="stat-box">
-            <span class="stat-label">COMPÉTENCES</span>
-            <span class="stat-value" style="font-size: 0.8rem;">C++, KERNEL, LIQUORIX</span>
-        </div>
-    </div>
-
-    <div class="bento-item" style="background: var(--text-main); color: var(--bg-ultra-light);">
-        <div>
-            <h3 style="color: var(--lumy-purple);"><i class="fas fa-code"></i> MISSION_WEB</h3>
-            <p style="font-size: 1.4rem;">Architecture Web & Plateforme Cloud LumyCorp.</p>
-        </div>
-        <div class="stat-box">
-            <span class="stat-label">COMPÉTENCES</span>
-            <span class="stat-value" style="font-size: 0.8rem; color: #fff;">REACT, NODE.JS, API</span>
-        </div>
-    </div>
-
-    <div class="bento-item">
-        <div>
-            <h3 style="color: #ffcc00;"><i class="fas fa-shield-alt"></i> MISSION_NET</h3>
-            <p style="font-size: 1.4rem;">Sécurisation des flux et infrastructures serveurs.</p>
-        </div>
-        <div class="stat-box">
-            <span class="stat-label">COMPÉTENCES</span>
-            <span class="stat-value" style="font-size: 0.8rem;">VPN, FIREWALL, CRYPTO</span>
-        </div>
+        <h3 id="brand-title">Brand_Ambassador</h3>
+        <p id="brand-desc" style="font-size: 1.4rem;">Representing the peak of engineering through global influence.</p>
     </div>
 </div>
-    
+
+<section class="laptop-section">
+    <div class="sticky">
+        <div class="laptop" id="lap">
+            <div class="lid" id="lid">
+                <div class="screen-ui" id="ui"><h2>LUMY</h2></div>
+            </div>
+            <div class="base"></div>
+        </div>
+    </div>
+</section>
+
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="navbar.js"></script>
-<script src="footer.js"></script>
-<script src="cookies.js"></script>
 
 <script>
     const translations = {
@@ -270,29 +245,28 @@
         }, 500);
     }
 
-    // --- LOGIQUE MODE SOMBRE / JOUR ---
     function initTheme() {
         const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.body.setAttribute("data-theme", isDark ? "dark" : "light");
-        initParticles(isDark ? "#ffffff" : "#001a33");
+        // Couleur des particules adaptée à l'image 2
+        initParticles(isDark ? "#ffffff" : "#00b4cc");
     }
 
     function initParticles(color) {
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": color },
-                "opacity": { "value": 0.4 },
-                "size": { "value": 2.5, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": color, "opacity": 0.3, "width": 1 },
-                "move": { "enable": true, "speed": 0.6 }
+                "opacity": { "value": 0.3 },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": color, "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1 }
             },
             "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
             "retina_detect": true
         });
     }
 
-    // Typewriter
     let i = 0, j = 0, isDeleting = false;
     const typewriterElement = document.getElementById('typewriter');
 
@@ -306,16 +280,11 @@
         setTimeout(loop, isDeleting ? 60 : 120);
     }
 
-    // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
         initTheme();
         loop();
     });
 
-    // Écouteur de changement de thème PC
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initTheme);
-
-    // Laptop Scroll
     window.addEventListener('scroll', () => {
         const trigger = document.querySelector('.laptop-section');
         const scroll = window.scrollY - trigger.offsetTop;
@@ -331,4 +300,4 @@
     });
 </script>
 </body>
-</html> 
+</html>
