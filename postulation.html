@@ -47,6 +47,27 @@
                         radial-gradient(circle at 20% 80%, rgba(180, 0, 255, 0.12), transparent 45%);
         }
 
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 25px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(240, 240, 243, 0.75);
+        }
+
+        .logo-text { font-family: 'Orbitron'; font-size: 1.4rem; letter-spacing: 6px; font-weight: 900; }
+
+        .lang-picker {
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+            background: rgba(255, 255, 255, 0.9); padding: 12px 18px; border-radius: 100px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);
+            display: flex; gap: 10px; align-items: center; backdrop-filter: blur(10px);
+        }
+        .lang-picker select {
+            border: none; outline: none; font-family: 'Inter'; font-weight: 800;
+            font-size: 0.7rem; cursor: pointer; background: transparent; text-transform: uppercase;
+        }
+
         header { text-align: center; margin-bottom: 50px; padding: 0 5%; }
         .badge {
             display: inline-block; background: white; border: 1px solid rgba(0,0,0,0.05);
@@ -97,11 +118,11 @@
             box-shadow: 0 0 0 5px rgba(0, 242, 255, 0.1);
         }
 
-        /* Style quand le poste est détecté via URL */
-        .url-detected {
-            border-color: var(--lumy-blue-start) !important;
-            background: rgba(0, 219, 222, 0.05) !important;
-            font-weight: 800;
+        /* Style appliqué quand un poste est reçu via URL */
+        #secteur_select.active-url {
+            border-color: var(--lumy-blue-start);
+            background: rgba(0, 219, 222, 0.05);
+            box-shadow: 0 0 15px rgba(0, 219, 222, 0.2);
         }
 
         .submit-btn {
@@ -118,13 +139,7 @@
             transform: scale(1.02);
         }
 
-        .lang-picker {
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
-            background: rgba(255, 255, 255, 0.9); padding: 12px 18px; border-radius: 100px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);
-            display: flex; gap: 10px; align-items: center; backdrop-filter: blur(10px);
-        }
-        .lang-picker select { border: none; background: transparent; font-family: 'Inter'; font-weight: 800; font-size: 0.7rem; cursor: pointer; }
+        #footer-container { width: 100%; margin-top: auto; }
 
         @media (max-width: 850px) {
             .form-container { grid-template-columns: 1fr; }
@@ -135,6 +150,8 @@
 <body>
 
 <div id="particles-js"></div>
+
+<script src="navbar.js"></script>
 
 <div class="lang-picker">
     <i class="fas fa-language" style="color: #00b4cc;"></i>
@@ -214,13 +231,15 @@
         <div class="input-group">
             <label id="l-sector">DOMAINE VISÉ</label>
             <select name="secteur_lumy" id="secteur_select" required>
-                <option value="">-- Sélectionner un poste --</option>
                 <option value="OS Developer">Développeur LumyOS / Kernel</option>
                 <option value="Web Developer">Développeur Web & Cloud</option>
                 <option value="Cybersecurity">Expert Cybersécurité</option>
                 <option value="AI Expert">Intelligence Artificielle & Data</option>
                 <option value="Industrial Maintenance">Maintenance Industrielle 3.0</option>
-                </select>
+                <option value="Lead Orchestrator">Lead Orchestrator</option>
+                <option value="Expert HTML5">Expert HTML5</option>
+                <option value="Designer CSS">Designer CSS</option>
+            </select>
         </div>
     </div>
 
@@ -243,7 +262,10 @@
     <button type="submit" class="submit-btn" id="btn-txt">TRANSMETTRE LA CANDIDATURE _</button>
 </form>
 
+<div id="footer-container"></div>
+
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="footer.js"></script>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -280,38 +302,34 @@
 </script>
 
 <script>
-    /* --- SYSTÈME DE DÉTECTION DU POSTE --- */
+    /* --- SYSTÈME DE RÉCUPÉRATION DU POSTE VIA URL --- */
     window.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const posteUrl = urlParams.get('poste'); 
 
         if (posteUrl) {
             const selectElement = document.getElementById('secteur_select');
-            // On remplace les _ par des espaces pour l'affichage
             const nomNettoye = posteUrl.replace(/_/g, ' ');
 
-            let existe = false;
-            // On vérifie si l'option est déjà dans la liste
+            let optionExiste = false;
             for (let i = 0; i < selectElement.options.length; i++) {
                 if (selectElement.options[i].text.toLowerCase() === nomNettoye.toLowerCase() || 
                     selectElement.options[i].value.toLowerCase() === nomNettoye.toLowerCase()) {
                     selectElement.selectedIndex = i;
-                    existe = true;
+                    optionExiste = true;
                     break;
                 }
             }
 
-            // Si le poste n'existe pas dans la liste fixe, on le crée
-            if (!existe) {
-                const newOpt = document.createElement('option');
-                newOpt.value = nomNettoye;
-                newOpt.text = nomNettoye;
-                newOpt.selected = true;
-                selectElement.add(newOpt);
+            if (!optionExiste) {
+                const nouvelleOption = document.createElement('option');
+                nouvelleOption.value = nomNettoye;
+                nouvelleOption.text = nomNettoye;
+                nouvelleOption.selected = true;
+                selectElement.add(nouvelleOption);
             }
-
-            // On ajoute un style visuel pour montrer que c'est bien pris en compte
-            selectElement.classList.add('url-detected');
+            
+            selectElement.classList.add('active-url');
         }
     });
 
@@ -347,7 +365,7 @@
             document.getElementById('badge-txt').innerText = d.badge;
             document.getElementById('main-title').innerHTML = d.title;
             document.getElementById('h-id').innerText = d.hId;
-            document.getElementById('h-info').innerText = d.hInfo;
+            document.getElementById('h-info').innerText = d.hId;
             document.getElementById('h-edu').innerText = d.hEdu;
             document.getElementById('h-sector').innerText = d.hSector;
             document.getElementById('h-link').innerText = d.hLink;
@@ -370,13 +388,15 @@
     /* --- PARTICULES --- */
     particlesJS("particles-js", {
         "particles": {
-            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
             "color": { "value": "#001a33" },
-            "opacity": { "value": 0.4 },
-            "size": { "value": 2.5 },
+            "opacity": { "value": 0.4, "random": false },
+            "size": { "value": 2.5, "random": true },
             "line_linked": { "enable": true, "distance": 150, "color": "#001a33", "opacity": 0.3, "width": 1 },
             "move": { "enable": true, "speed": 0.6 }
-        }
+        },
+        "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
+        "retina_detect": true
     });
 </script>
 </body>
