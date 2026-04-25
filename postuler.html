@@ -236,21 +236,62 @@
     </div>
 
     <div class="bento-card">
-        <h3 id="h-link">Bridge_Liaison</h3>
+        <h3 id="h-sector">Sector_Selection</h3>
         <div class="input-group">
-            <label id="l-email">EMAIL DE CONTACT</label>
-            <input type="email" name="email" placeholder="theo@lumy.os" required>
+            <label id="l-sector">DOMAINE VISÉ</label>
+            <select name="secteur_lumy" id="secteur_select" required>
+                <option value="OS Developer">Développeur LumyOS / Kernel</option>
+                <option value="Web Developer">Développeur Web & Cloud</option>
+                <option value="Cybersecurity">Expert Cybersécurité</option>
+                <option value="AI Expert">Intelligence Artificielle & Data</option>
+                <option value="Industrial Maintenance">Maintenance Industrielle 3.0</option>
+                <option value="Lead Orchestrator">Lead Orchestrator</option>
+                <option value="Expert HTML5">Expert HTML5</option>
+                <option value="Designer CSS">Designer CSS</option>
+                </select>
         </div>
     </div>
 
-    <div class="bento-card full-width" style="background: var(--text-main); color: white;">
-        <h3 id="h-aura" style="color: rgba(255,255,255,0.25);">Lumy_Protocol</h3>
-        <div class="input-group">
-            <label style="color: #aaa;" id="l-moto">MOTIVATIONS</label>
-            <textarea name="motivation" rows="4" placeholder="Décrivez votre vision pour Lumy Corporation..." required style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;"></textarea>
-        </div>
-    </div>
+<script>
+    /* --- SYSTÈME DE RÉCUPÉRATION DU POSTE VIA URL --- */
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const posteUrl = urlParams.get('poste'); // On cherche ?poste=...
 
+        if (posteUrl) {
+            const selectElement = document.getElementById('secteur_select');
+            
+            // On nettoie le nom (remplace les underscores par des espaces)
+            const nomNettoye = posteUrl.replace(/_/g, ' ');
+
+            // On vérifie si l'option existe déjà dans la liste
+            let optionExiste = false;
+            for (let i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].text.toLowerCase() === nomNettoye.toLowerCase() || 
+                    selectElement.options[i].value.toLowerCase() === nomNettoye.toLowerCase()) {
+                    selectElement.selectedIndex = i;
+                    optionExiste = true;
+                    break;
+                }
+            }
+
+            // Si le poste cliqué n'est pas dans la liste par défaut, on l'ajoute dynamiquement
+            if (!optionExiste) {
+                const nouvelleOption = document.createElement('option');
+                nouvelleOption.value = nomNettoye;
+                nouvelleOption.text = nomNettoye;
+                nouvelleOption.selected = true;
+                selectElement.add(nouvelleOption);
+            }
+            
+            // Optionnel : on met le champ en "style sélectionné" pour que l'utilisateur voit que c'est fixé
+            selectElement.style.borderColor = "var(--lumy-cyan)";
+            selectElement.style.boxShadow = "0 0 10px rgba(0, 242, 255, 0.2)";
+        }
+    });
+
+    /* --- TES AUTRES SCRIPTS (Translations, Particles, Firebase) GARDENT LEUR PLACE ICI --- */
+</script>
     <button type="submit" class="submit-btn" id="btn-txt">TRANSMIT APPLICATION _</button>
 </form>
 
