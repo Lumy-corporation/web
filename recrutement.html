@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMY CORP | Recrutement</title>
+    <title>LUMY CORP | RECRUTEMENT</title>
     
     <link rel="icon" type="image/png" href="logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://github.com/Lumy-corporation/web/blob/main/index.html">
+    <link rel="apple-touch-icon" href="logo.png">
+    <meta name="description" content="Rejoignez l'unité d'élite de LUMY CORP. Bâtissez le futur de l'ingénierie humanitaire.">
 
-<style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
         :root {
             --lumy-cyan: #00f2ff;
             --lumy-purple: #b400ff;
@@ -22,7 +25,6 @@
             --lid-bg: #ffffff;
         }
 
-        /* --- CONFIGURATION MODE SOMBRE --- */
         [data-theme="dark"] {
             --bg-ultra-light: #0a0a0c;
             --text-main: #f5f5f7;
@@ -33,7 +35,6 @@
             --lid-bg: #1a1a1e;
         }
 
-        /* MASTER FIX : Force le blanc pour TOUS les textes en mode sombre */
         [data-theme="dark"] a, 
         [data-theme="dark"] p, 
         [data-theme="dark"] h1, 
@@ -151,74 +152,163 @@
             .laptop { width: 90%; }
         }
     </style>
-    
-    </head>
-<body data-theme="dark">
+</head>
+<body>
 
 <div id="particles-js"></div>
 
+<div class="lang-picker">
+    <i class="fas fa-language" style="color: #00b4cc;"></i>
+    <select id="langSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="fr" selected>Français</option>
+    </select>
+</div>
+
 <section class="hero">
-    <div class="badge">JOIN THE EMPIRE // RECRUTEMENT</div>
-    <h1>Bâtissez le <span>Futur</span> avec nous</h1>
-    <p style="color: #86868b; max-width: 600px; margin: 0 auto;">Lumy Corp recherche des talents passionnés pour développer l'inclusion numérique et l'humanitaire de demain.</p>
+    <div class="badge" id="hero-badge">LUMY // RECRUTEMENT</div>
+    <h1>Build<br><span id="typewriter"></span></h1>
+    <p id="hero-desc" style="color: #86868b; max-width: 550px; font-weight: 500; font-size: 1.1rem;">Rejoignez l'élite technologique. Nous recherchons des bâtisseurs pour notre empire humanitaire.</p>
 </section>
 
-<div class="category-filter">
-    <button class="filter-btn active">Tous</button>
-    <button class="filter-btn">Tech & Web</button>
-    <button class="filter-btn">Créatif & Vidéo</button>
-    <button class="filter-btn">RH & Social</button>
-</div>
-
-<div class="recruitment-grid">
-    <div class="job-card">
+<div class="bento-container">
+    <div class="bento-item big" style="background: linear-gradient(135deg, var(--bento-bg) 0%, var(--bento-bg) 100%);">
         <div>
-            <div class="job-tag">Développement</div>
-            <h3>Codeur Web Fullstack</h3>
-            <p>Créez notre plateforme d'entraide et l'intranet de l'association. Maîtrise de HTML/CSS/JS requise.</p>
+            <h3 id="core-title">Pôle_Développement_Web</h3>
+            <p id="core-desc">Créez l'infrastructure de Lumy Corp. Site public et Intranet sécurisé.</p>
+            <div class="system-stats">
+                <div class="stat-box"><span class="stat-label">STACK</span><span class="stat-value">HTML/JS/SQL</span></div>
+                <div class="stat-box"><span class="stat-label">STATUS</span><span class="stat-value">URGENT</span></div>
+                <div class="stat-box"><span class="stat-label">OPEN</span><span class="stat-value">3 POSTES</span></div>
+            </div>
         </div>
-        <a href="mailto:contact@lumycorp.com" class="btn-apply">Postuler via Email</a>
+        <div style="position: absolute; right: 20px; bottom: -20px; font-size: 12rem; opacity: 0.04; font-weight: 900; font-family: 'Orbitron'; pointer-events: none;">WEB</div>
     </div>
 
-    <div class="job-card">
-        <div>
-            <div class="job-tag">Administration</div>
-            <h3>Responsable RH</h3>
-            <p>Gérez l'humain au sein de Lumy Corp. Tri des candidatures, accueil des bénévoles et gestion d'équipe.</p>
-        </div>
-        <a href="#" class="btn-apply">Postuler via LinkedIn</a>
+    <div class="bento-item" style="background: var(--text-main); color: var(--bg-ultra-light);">
+        <h3 id="net-title" style="color: #888;">MÉDIA_&_MONTAGE</h3>
+        <p id="net-desc" style="font-size: 1.4rem;">Donnez vie à nos projets en vidéo.</p>
+        <i class="fas fa-video" style="margin-top: 30px; font-size: 2rem; opacity: 0.2;"></i>
     </div>
 
-    <div class="job-card">
-        <div>
-            <div class="job-tag">Média</div>
-            <h3>Monteur Vidéo / Motion</h3>
-            <p>Transformez nos lignes de code en émotions. Création de contenus pour YouTube, TikTok et LinkedIn.</p>
-        </div>
-        <a href="#" class="btn-apply">Voir la mission</a>
-    </div>
-
-    <div class="job-card">
-        <div>
-            <div class="job-tag">Design</div>
-            <h3>UI/UX Graphiste</h3>
-            <p>Donnez une identité visuelle à Lumy OS et à nos supports de communication humanitaire.</p>
-        </div>
-        <a href="#" class="btn-apply">Rejoindre le pôle</a>
+    <div class="bento-item">
+        <h3 id="brand-title">RESSOURCES_HUMAINES</h3>
+        <p id="brand-desc" style="font-size: 1.4rem;">Gérez les talents et l'accueil des bénévoles.</p>
     </div>
 </div>
+
+<section class="laptop-section">
+    <div class="sticky">
+        <div class="laptop" id="lap">
+            <div class="lid" id="lid">
+                <div class="screen-ui" id="ui"><h2>JOIN US</h2></div>
+            </div>
+            <div class="base"></div>
+        </div>
+    </div>
+</section>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 <script>
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 80 },
-            "color": { "value": "#ffffff" },
-            "line_linked": { "enable": true, "opacity": 0.2 },
-            "move": { "speed": 1 }
+    const translations = {
+        en: {
+            heroBadge: "LUMY // RECRUITMENT",
+            heroDesc: "Join the tech elite. We are looking for builders for our humanitarian empire.",
+            coreTitle: "Web_Development_Hub",
+            coreDesc: "Build Lumy Corp's infrastructure. Public site and secure Intranet.",
+            netTitle: "MEDIA_&_EDITING",
+            netDesc: "Bring our projects to life through video.",
+            brandTitle: "HUMAN_RESOURCES",
+            brandDesc: "Manage talent and volunteer onboarding.",
+            typewriter: ["the Future", "your Empire", "with Passion", "Lumy Corp"]
+        },
+        fr: {
+            heroBadge: "LUMY // RECRUTEMENT",
+            heroDesc: "Rejoignez l'élite technologique. Nous recherchons des bâtisseurs pour notre empire humanitaire.",
+            coreTitle: "Pôle_Développement_Web",
+            coreDesc: "Créez l'infrastructure de Lumy Corp. Site public et Intranet sécurisé.",
+            netTitle: "MÉDIA_&_MONTAGE",
+            netDesc: "Donnez vie à nos projets en vidéo.",
+            brandTitle: "RESSOURCES_HUMAINES",
+            brandDesc: "Gérez les talents et l'accueil des bénévoles.",
+            typewriter: ["le Futur", "votre Empire", "avec Passion", "Lumy Corp"]
+        }
+    };
+
+    let currentLang = 'fr';
+
+    function changeLanguage() {
+        currentLang = document.getElementById('langSelect').value;
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+            const data = translations[currentLang];
+            document.getElementById('hero-badge').innerText = data.heroBadge;
+            document.getElementById('hero-desc').innerText = data.heroDesc;
+            document.getElementById('core-title').innerText = data.coreTitle;
+            document.getElementById('core-desc').innerText = data.coreDesc;
+            document.getElementById('net-title').innerText = data.netTitle;
+            document.getElementById('net-desc').innerText = data.netDesc;
+            document.getElementById('brand-title').innerText = data.brandTitle;
+            document.getElementById('brand-desc').innerText = data.brandDesc;
+            document.body.style.opacity = 1;
+        }, 500);
+    }
+
+    function initTheme() {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.body.setAttribute("data-theme", isDark ? "dark" : "light");
+        initParticles(isDark ? "#ffffff" : "#001a33");
+    }
+
+    function initParticles(color) {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": color },
+                "opacity": { "value": 0.4 },
+                "size": { "value": 2.5, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": color, "opacity": 0.3, "width": 1 },
+                "move": { "enable": true, "speed": 0.6 }
+            },
+            "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
+            "retina_detect": true
+        });
+    }
+
+    let i = 0, j = 0, isDeleting = false;
+    const typewriterElement = document.getElementById('typewriter');
+
+    function loop() {
+        const phrases = translations[currentLang].typewriter;
+        const currentFullPhrase = phrases[i];
+        typewriterElement.innerHTML = isDeleting ? currentFullPhrase.substring(0, j - 1) : currentFullPhrase.substring(0, j + 1);
+        j = isDeleting ? j - 1 : j + 1;
+        if (!isDeleting && j === currentFullPhrase.length) { isDeleting = true; setTimeout(loop, 2000); return; }
+        if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % phrases.length; }
+        setTimeout(loop, isDeleting ? 60 : 120);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        loop();
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initTheme);
+
+    window.addEventListener('scroll', () => {
+        const trigger = document.querySelector('.laptop-section');
+        const scroll = window.scrollY - trigger.offsetTop;
+        const zoneHeight = trigger.offsetHeight - window.innerHeight;
+        if (scroll > 0) {
+            let p = Math.min(scroll / zoneHeight, 1);
+            const lap = document.getElementById('lap');
+            lap.style.opacity = p * 2;
+            lap.style.transform = `translateY(${(1-p)*50}px) scale(${0.9 + p*0.1})`;
+            document.getElementById('lid').style.transform = `rotateX(${Math.min(-90 + (p * 98), 5)}deg)`;
+            document.getElementById('ui').style.opacity = p > 0.6 ? (p - 0.6) * 2.5 : 0;
         }
     });
 </script>
-
 </body>
 </html>
