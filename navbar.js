@@ -130,7 +130,7 @@
                     </div>
                 </div>
 
-                <a href="postuler.html" class="nav-link-main btn-apply">Postuler</a>
+                <a href="recrutement.html" class="nav-link-main btn-apply">Postuler</a>
             </div>
         </nav>
         `;
