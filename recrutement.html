@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMY CORPORATION | Future of Engineering</title>
+    <title>LUMY CORP | Recruitment Center</title>
     
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
-    <meta name="description" content="LUMY CORPORATION - Unité d'élite technologique spécialisée dans le développement d'écosystèmes numériques innovants.">
+    <meta name="description" content="Rejoignez l'élite de Lumy Corporation. Missions système, web et réseau.">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            /* Palette Image 2 : Cyan, Pourpre léger et Blanc cassé */
             --lumy-cyan: #00f2ff;
             --lumy-purple: #b400ff;
-            --bg-ultra-light: #f5f7fa; /* Fond très clair comme l'image 2 */
+            --bg-ultra-light: #f0f0f3;
             --text-main: #1d1d1f;
-            --bento-bg: rgba(255, 255, 255, 0.7);
-            --bento-border: rgba(0, 180, 204, 0.1);
+            --bento-bg: rgba(255, 255, 255, 0.8);
+            --bento-border: rgba(0,0,0,0.04);
             --badge-bg: white;
             --laptop-base: #d2d2d7;
             --lid-bg: #ffffff;
@@ -29,11 +28,18 @@
         [data-theme="dark"] {
             --bg-ultra-light: #0a0a0c;
             --text-main: #f5f5f7;
-            --bento-bg: rgba(20, 20, 25, 0.8);
+            --bento-bg: rgba(20, 20, 25, 0.85);
             --bento-border: rgba(255, 255, 255, 0.08);
             --badge-bg: #1a1a1e;
             --laptop-base: #2c2c2e;
             --lid-bg: #1a1a1e;
+        }
+
+        [data-theme="dark"] a, [data-theme="dark"] p, [data-theme="dark"] h1, 
+        [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, 
+        [data-theme="dark"] span, [data-theme="dark"] li, [data-theme="dark"] i,
+        [data-theme="dark"] div:not(.screen-ui) {
+            color: #f5f5f7 !important;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
@@ -44,27 +50,22 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             line-height: 1.5;
-            transition: background-color 0.8s ease;
+            transition: background-color 0.8s ease, color 0.8s ease, opacity 0.5s;
         }
 
-        /* --- FOND IMAGE 2 : Gradient Discret & Particules --- */
         #particles-js {
             position: fixed; width: 100%; height: 100%;
             top: 0; left: 0; z-index: -1;
-            /* Recréation du dégradé de l'image 2 */
-            background: 
-                radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.08), transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(180, 0, 255, 0.08), transparent 40%),
-                linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            background: radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.12), transparent 45%),
+                        radial-gradient(circle at 20% 80%, rgba(180, 0, 255, 0.12), transparent 45%);
         }
 
         .lang-picker {
             position: fixed; bottom: 30px; right: 30px; z-index: 1000;
             background: var(--bento-bg); padding: 10px; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--bento-border);
-            display: flex; gap: 10px; align-items: center; backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--bento-border);
+            display: flex; gap: 10px; align-items: center; backdrop-filter: blur(10px);
         }
-
         .lang-picker select {
             border: none; outline: none; font-family: 'Inter'; font-weight: 700;
             font-size: 0.7rem; cursor: pointer; background: transparent; 
@@ -72,65 +73,67 @@
         }
 
         .hero {
-            height: 100vh; display: flex; flex-direction: column;
+            height: 80vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center; padding: 0 10%;
         }
 
         .badge {
             background: var(--badge-bg); border: 1px solid var(--bento-border);
-            padding: 8px 18px; border-radius: 100px;
-            font-size: 0.7rem; font-weight: 800; letter-spacing: 2px;
-            margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            color: #86868b;
+            padding: 8px 16px; border-radius: 100px;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+            margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            color: var(--text-main);
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 9vw, 6.5rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800; letter-spacing: -3px;
             line-height: 0.9; margin-bottom: 30px;
-            color: #1d1d1f;
         }
 
-        /* Gradient de l'image 2 sur "le Futur" */
         .hero h1 span {
             background: linear-gradient(90deg, #00b4cc, #9b00db);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
+        #typewriter::after {
+            content: '|'; margin-left: 5px; color: #00b4cc; animation: blink 0.8s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
         .bento-container {
             max-width: 1200px; margin: 0 auto 100px;
             display: grid; grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 350px; gap: 25px; padding: 20px;
+            grid-auto-rows: 300px; gap: 25px; padding: 20px;
         }
 
         .bento-item {
-            background: var(--bento-bg); border-radius: 32px; padding: 45px;
-            backdrop-filter: blur(25px); border: 1px solid var(--bento-border); 
+            background: var(--bento-bg); border-radius: 32px; padding: 35px;
+            backdrop-filter: blur(20px); border: 1px solid var(--bento-border); 
             display: flex; flex-direction: column; justify-content: space-between;
-            transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
             position: relative; overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
         }
 
-        .bento-item:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,180,204,0.1); }
-        .big { grid-column: span 3; }
+        .bento-item:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
+        .big { grid-column: span 3; height: 350px; }
 
-        .bento-item h3 { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 3px; color: #86868b; text-transform: uppercase; }
-        .bento-item p { font-size: 1.8rem; font-weight: 700; margin-top: 15px; max-width: 600px; color: #1d1d1f; }
+        .bento-item h3 { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 2px; color: #86868b; text-transform: uppercase; }
+        .bento-item p { font-size: 1.4rem; font-weight: 700; margin-top: 15px; }
 
-        .system-stats { display: flex; gap: 40px; margin-top: 30px; }
+        .system-stats { display: flex; gap: 30px; margin-top: 25px; }
         .stat-box { display: flex; flex-direction: column; }
         .stat-label { font-size: 0.6rem; font-weight: 800; color: #b4b4bb; letter-spacing: 1px; }
-        .stat-value { font-family: 'Orbitron'; font-size: 1.2rem; color: #00b4cc; }
+        .stat-value { font-family: 'Orbitron'; font-size: 1.1rem; color: #00b4cc; }
 
-        .laptop-section { height: 150vh; position: relative; }
+        .laptop-section { height: 120vh; position: relative; }
         .sticky { position: sticky; top: 0; height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 1500px; }
-        .laptop { width: 650px; height: 410px; transform-style: preserve-3d; opacity: 0; transition: 0.5s; }
+        .laptop { width: 600px; height: 380px; transform-style: preserve-3d; opacity: 0; transition: 0.5s; }
         .lid { 
             position: absolute; bottom: 12px; width: 100%; height: 100%;
             background: var(--lid-bg); border-radius: 16px 16px 2px 2px;
             transform-origin: bottom; transform: rotateX(-90deg);
-            border: 1px solid rgba(0,0,0,0.1); overflow: hidden;
+            border: 1px solid var(--bento-border); overflow: hidden;
         }
         .screen-ui { width: 100%; height: 100%; background: #000; opacity: 0; display: flex; justify-content: center; align-items: center; }
         .screen-ui h2 { color: white; font-family: 'Orbitron'; letter-spacing: 15px; font-size: 2.5rem; text-shadow: 0 0 20px var(--lumy-cyan); }
@@ -138,7 +141,7 @@
 
         @media (max-width: 900px) {
             .bento-container { grid-template-columns: 1fr; grid-auto-rows: auto; }
-            .big { grid-column: span 1; }
+            .big { grid-column: span 1; height: auto; }
             .laptop { width: 90%; }
         }
     </style>
@@ -156,34 +159,56 @@
 </div>
 
 <section class="hero">
-    <div class="badge" id="hero-badge">LUMY // CORE ACCESS</div>
-    <h1>Engineering<br><span id="typewriter"></span></h1>
-    <p id="hero-desc" style="color: #86868b; max-width: 550px; font-weight: 500; font-size: 1.1rem;">Lumy is the premier label empowering elite engineers to build their own technological empires.</p>
+    <div class="badge" id="hero-badge">LUMY // RECRUTEMENT</div>
+    <h1>Build your<br><span id="typewriter"></span></h1>
+    <p id="hero-desc" style="color: #86868b; max-width: 600px; font-weight: 500; font-size: 1.1rem;">Rejoignez le label qui transforme les étudiants d'élite en fondateurs d'empires technologiques.</p>
 </section>
 
 <div class="bento-container">
     <div class="bento-item big">
         <div>
-            <h3 id="core-title">Lumy_Core_System</h3>
-            <p id="core-desc">High-performance architecture designed for absolute fluidity and power.</p>
+            <h3 id="recruit-title">LUMY_RECRUITMENT_CORE</h3>
+            <p id="recruit-desc" style="font-size: 2rem; max-width: 700px;">Nous cherchons les 100 prochains ingénieurs d'élite pour AuraOS.</p>
             <div class="system-stats">
-                <div class="stat-box"><span class="stat-label">LATENCY</span><span class="stat-value">0.002ms</span></div>
-                <div class="stat-box"><span class="stat-label">KERNEL</span><span class="stat-value">LUMY_CORE</span></div>
-                <div class="stat-box"><span class="stat-label">UPTIME</span><span class="stat-value">99.9%</span></div>
+                <div class="stat-box"><span class="stat-label">OFFRES OUVERTES</span><span class="stat-value">04</span></div>
+                <div class="stat-box"><span class="stat-label">SÉLECTION</span><span class="stat-value">TOP_100</span></div>
+                <div class="stat-box"><span class="stat-label">STATUS</span><span class="stat-value" style="color: #00ff88;">ACTIVE</span></div>
             </div>
         </div>
-        <div style="position: absolute; right: 20px; bottom: -20px; font-size: 12rem; opacity: 0.03; font-weight: 900; font-family: 'Orbitron'; pointer-events: none;">LUMY</div>
-    </div>
-
-    <div class="bento-item" style="background: #1d1d1f; color: white;">
-        <h3 id="net-title" style="color: #888;">GLOBAL_NETWORK</h3>
-        <p id="net-desc" style="font-size: 1.4rem; color: white;">Direct bridge to international markets.</p>
-        <i class="fas fa-network-wired" style="margin-top: 30px; font-size: 2rem; opacity: 0.3; color: white;"></i>
+        <div style="position: absolute; right: 20px; bottom: -20px; font-size: 10rem; opacity: 0.03; font-weight: 900; font-family: 'Orbitron'; pointer-events: none;">JOIN</div>
     </div>
 
     <div class="bento-item">
-        <h3 id="brand-title">Brand_Ambassador</h3>
-        <p id="brand-desc" style="font-size: 1.4rem;">Representing the peak of engineering through global influence.</p>
+        <div>
+            <h3 style="color: var(--lumy-cyan);"><i class="fas fa-microchip"></i> MISSION_OS</h3>
+            <p id="os-desc">Développement du Kernel AuraOS & Interface Zen.</p>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">STACK</span>
+            <span class="stat-value" style="font-size: 0.8rem;">C++, RUST, KERNEL</span>
+        </div>
+    </div>
+
+    <div class="bento-item" style="background: var(--text-main); color: var(--bg-ultra-light);">
+        <div>
+            <h3 style="color: var(--lumy-purple);"><i class="fas fa-code"></i> MISSION_WEB</h3>
+            <p id="web-desc" style="color: white !important;">Architecture Cloud & Plateforme LumyCorp.</p>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">STACK</span>
+            <span class="stat-value" style="font-size: 0.8rem; color: white !important;">REACT, NODE.JS, API</span>
+        </div>
+    </div>
+
+    <div class="bento-item">
+        <div>
+            <h3 style="color: #ffcc00;"><i class="fas fa-network-wired"></i> MISSION_NET</h3>
+            <p id="net-desc">Infrastructure serveurs & Sécurité des flux.</p>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">STACK</span>
+            <span class="stat-value" style="font-size: 0.8rem;">LINUX, VPN, FIREWALL</span>
+        </div>
     </div>
 </div>
 
@@ -203,26 +228,24 @@
 <script>
     const translations = {
         en: {
-            heroBadge: "LUMY // CORE ACCESS",
-            heroDesc: "Lumy is the premier label empowering elite engineers to build their own technological empires.",
-            coreTitle: "Lumy_Core_System",
-            coreDesc: "High-performance architecture designed for absolute fluidity and power.",
-            netTitle: "GLOBAL_NETWORK",
-            netDesc: "Direct bridge to international markets.",
-            brandTitle: "Brand_Ambassador",
-            brandDesc: "Representing the peak of engineering through Lumy's global influence.",
-            typewriter: ["the Future", "your Empire", "Innovation", "Pure Power"]
+            heroBadge: "LUMY // RECRUITMENT",
+            heroDesc: "Join the label that empowers elite engineers to build their own technological empires.",
+            recruitTitle: "LUMY_RECRUITMENT_CORE",
+            recruitDesc: "We are seeking the next 100 elite engineers for AuraOS.",
+            osDesc: "AuraOS Kernel development & Zen Interface.",
+            webDesc: "Cloud Architecture & LumyCorp Platform.",
+            netDesc: "Server Infrastructure & Flow Security.",
+            typewriter: ["Future", "Empire", "Legacy", "Power"]
         },
         fr: {
-            heroBadge: "LUMY // ACCÈS CORE",
-            heroDesc: "Lumy est le label prestigieux qui permet aux ingénieurs d'élite de bâtir leurs propres empires technologiques.",
-            coreTitle: "Lumy_Système_Core",
-            coreDesc: "Architecture haute performance conçue pour une fluidité et une puissance absolue.",
-            netTitle: "RÉSEAU_GLOBAL",
-            netDesc: "Un pont direct vers les marchés internationaux.",
-            brandTitle: "Ambassadeur_Marque",
-            brandDesc: "Représenter le sommet de l'ingénierie à travers l'influence mondiale de Lumy.",
-            typewriter: ["le Futur", "votre Empire", "l'Innovation", "la Puissance"]
+            heroBadge: "LUMY // RECRUTEMENT",
+            heroDesc: "Rejoignez le label qui permet aux ingénieurs d'élite de bâtir leurs propres empires technologiques.",
+            recruitTitle: "LUMY_RECRUTEMENT_CORE",
+            recruitDesc: "Nous cherchons les 100 prochains ingénieurs d'élite pour AuraOS.",
+            osDesc: "Développement du Kernel AuraOS & Interface Zen.",
+            webDesc: "Architecture Cloud & Plateforme LumyCorp.",
+            netDesc: "Infrastructure serveurs & Sécurité des flux.",
+            typewriter: ["Futur", "Empire", "Héritage", "Puissance"]
         }
     };
 
@@ -235,12 +258,11 @@
             const data = translations[currentLang];
             document.getElementById('hero-badge').innerText = data.heroBadge;
             document.getElementById('hero-desc').innerText = data.heroDesc;
-            document.getElementById('core-title').innerText = data.coreTitle;
-            document.getElementById('core-desc').innerText = data.coreDesc;
-            document.getElementById('net-title').innerText = data.netTitle;
+            document.getElementById('recruit-title').innerText = data.recruitTitle;
+            document.getElementById('recruit-desc').innerText = data.recruitDesc;
+            document.getElementById('os-desc').innerText = data.osDesc;
+            document.getElementById('web-desc').innerText = data.webDesc;
             document.getElementById('net-desc').innerText = data.netDesc;
-            document.getElementById('brand-title').innerText = data.brandTitle;
-            document.getElementById('brand-desc').innerText = data.brandDesc;
             document.body.style.opacity = 1;
         }, 500);
     }
@@ -248,31 +270,30 @@
     function initTheme() {
         const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.body.setAttribute("data-theme", isDark ? "dark" : "light");
-        // Couleur des particules adaptée à l'image 2
-        initParticles(isDark ? "#ffffff" : "#00b4cc");
+        initParticles(isDark ? "#ffffff" : "#001a33");
     }
 
     function initParticles(color) {
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": color },
                 "opacity": { "value": 0.3 },
                 "size": { "value": 2, "random": true },
                 "line_linked": { "enable": true, "distance": 150, "color": color, "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1 }
+                "move": { "enable": true, "speed": 0.8 }
             },
             "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
             "retina_detect": true
         });
     }
 
+    // Typewriter
     let i = 0, j = 0, isDeleting = false;
-    const typewriterElement = document.getElementById('typewriter');
-
     function loop() {
         const phrases = translations[currentLang].typewriter;
         const currentFullPhrase = phrases[i];
+        const typewriterElement = document.getElementById('typewriter');
         typewriterElement.innerHTML = isDeleting ? currentFullPhrase.substring(0, j - 1) : currentFullPhrase.substring(0, j + 1);
         j = isDeleting ? j - 1 : j + 1;
         if (!isDeleting && j === currentFullPhrase.length) { isDeleting = true; setTimeout(loop, 2000); return; }
@@ -280,11 +301,7 @@
         setTimeout(loop, isDeleting ? 60 : 120);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        initTheme();
-        loop();
-    });
-
+    // Scroll Laptop
     window.addEventListener('scroll', () => {
         const trigger = document.querySelector('.laptop-section');
         const scroll = window.scrollY - trigger.offsetTop;
@@ -297,6 +314,11 @@
             document.getElementById('lid').style.transform = `rotateX(${Math.min(-90 + (p * 98), 5)}deg)`;
             document.getElementById('ui').style.opacity = p > 0.6 ? (p - 0.6) * 2.5 : 0;
         }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        loop();
     });
 </script>
 </body>
