@@ -275,20 +275,47 @@
         </div>
     </div>
 
-    <div class="bento-card">
-        <h3 id="h-sector">Sector_Selection</h3>
-        <div class="input-group">
-            <label id="l-sector">DOMAINE VISÉ</label>
-            <select name="secteur_lumy" id="secteur_select" required>
-                <option value="OS Developer">Développeur LumyOS / Kernel</option>
-                <option value="Web Developer">Développeur Web & Cloud</option>
-                <option value="Cybersecurity">Expert Cybersécurité</option>
-                <option value="AI Expert">Intelligence Artificielle & Data</option>
-                <option value="Industrial Maintenance">Maintenance Industrielle 3.0</option>
-                <option value="Lead Orchestrator">Lead Orchestrator</option>
-                <option value="Expert HTML5">Expert HTML5</option>
-                <option value="Designer CSS">Designer CSS</option>
-            </select>
+<div class="bento-card full-width">
+    <h3 id="h-sector">Sector_Selection</h3>
+    <div class="input-group">
+        <label id="l-sector">DOMAINE VISÉ</label>
+        <select name="secteur_lumy" id="secteur_select" required>
+            <option value="" disabled selected>-- Sélectionnez votre spécialisation --</option>
+
+            <optgroup label="💻 PÔLE OS & KERNEL">
+                <option value="OS Developer">🖥️ Développeur Kernel (C++/Rust)</option>
+                <option value="UI Designer Zen">🎨 UI Designer Zen (KDE/GTK)</option>
+                <option value="Architecte Structure">🏗️ Architecte Structure</option>
+            </optgroup>
+
+            <optgroup label="🌐 PÔLE WEB & CLOUD">
+                <option value="Lead Orchestrator Web">🛰️ Lead Orchestrator</option>
+                <option value="Expert HTML5">🟠 Expert HTML5</option>
+                <option value="Designer CSS">🔵 Designer CSS</option>
+                <option value="Dev JavaScript">🟡 Dev JavaScript (ES6+)</option>
+                <option value="Front-end Dev">⚛️ Front-end Dev (React)</option>
+                <option value="Back-end Dev">🟢 Back-end Dev (Node.js)</option>
+                <option value="Database Admin">🗄️ Database Admin</option>
+            </optgroup>
+
+            <optgroup label="📸 PÔLE MÉDIAS & SOCIAUX">
+                <option value="Lead Orchestrator Medias">🛰️ Lead Orchestrator</option>
+                <option value="Monteur Vidéo">🎬 Monteur Vidéo (VFX)</option>
+                <option value="Graphiste">✒️ Graphiste / Identity</option>
+                <option value="Creative Lead">💡 Creative Lead</option>
+            </optgroup>
+
+            <optgroup label="💼 PÔLE ADMINISTRATIF & RH">
+                <option value="Lead Orchestrator Admin">🛰️ Lead Orchestrator</option>
+                <option value="Responsable RH">👥 Responsable RH</option>
+                <option value="Gestion Ambassadeurs">📢 Gestion Ambassadeurs</option>
+                <option value="Project Coordinator">📅 Project Coordinator</option>
+            </optgroup>
+        </select>
+    </div>
+</div>
+
+    
         </div>
     </div>
 
