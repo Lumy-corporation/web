@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUMY CORPORATION | Future of Engineering</title>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', { 'analytics_storage': 'denied' });
-      gtag('js', new Date());
-      gtag('config', 'G-RBK1P68BP9');
-    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RBK1P68BP9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { 'analytics_storage': 'denied' }); // IMPORTANT
+  gtag('js', new Date());
+  gtag('config', 'G-RBK1P68BP9');
+</script>
 
+    
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
-    <meta name="description" content="LUMY CORPORATION - Écosystème numérique souverain européen. Découvrez Lumy Workplace, Lumy OS et rejoignez nos bénévoles.">
+    <meta name="description" content="LUMY CORPORATION - Unité d'élite technologique spécialisée dans le développement d'écosystèmes numériques innovants.">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -25,21 +26,38 @@
         :root {
             --lumy-cyan: #00f2ff;
             --lumy-purple: #b400ff;
-            --lumy-blue-start: #00dbde; 
-            --lumy-blue-end: #0056ff;   
             --bg-ultra-light: #f0f0f3;
             --text-main: #1d1d1f;
             --bento-bg: rgba(255, 255, 255, 0.8);
             --bento-border: rgba(0,0,0,0.04);
             --badge-bg: white;
+            --laptop-base: #d2d2d7;
+            --lid-bg: #ffffff;
         }
 
+        /* --- CONFIGURATION MODE SOMBRE --- */
         [data-theme="dark"] {
             --bg-ultra-light: #0a0a0c;
             --text-main: #f5f5f7;
             --bento-bg: rgba(20, 20, 25, 0.85);
-            --bento-border: rgba(255, 255, 255, 0.12);
+            --bento-border: rgba(255, 255, 255, 0.08);
             --badge-bg: #1a1a1e;
+            --laptop-base: #2c2c2e;
+            --lid-bg: #1a1a1e;
+        }
+
+        /* MASTER FIX : Force le blanc pour TOUS les textes en mode sombre */
+        [data-theme="dark"] a, 
+        [data-theme="dark"] p, 
+        [data-theme="dark"] h1, 
+        [data-theme="dark"] h2, 
+        [data-theme="dark"] h3, 
+        [data-theme="dark"] h4, 
+        [data-theme="dark"] span, 
+        [data-theme="dark"] li, 
+        [data-theme="dark"] i,
+        [data-theme="dark"] div:not(.screen-ui) {
+            color: #f5f5f7 !important;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
@@ -50,20 +68,46 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             line-height: 1.5;
-            transition: background-color 0.8s ease;
+            transition: background-color 0.8s ease, color 0.8s ease, opacity 0.5s;
         }
 
-        #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+        #particles-js {
+            position: fixed; width: 100%; height: 100%;
+            top: 0; left: 0; z-index: -1;
+            background: radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.12), transparent 45%),
+                        radial-gradient(circle at 20% 80%, rgba(180, 0, 255, 0.12), transparent 45%);
+        }
+
+        .lang-picker {
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+            background: var(--bento-bg); padding: 10px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--bento-border);
+            display: flex; gap: 10px; align-items: center; backdrop-filter: blur(10px);
+        }
+        .lang-picker select {
+            border: none; outline: none; font-family: 'Inter'; font-weight: 700;
+            font-size: 0.7rem; cursor: pointer; background: transparent; 
+            text-transform: uppercase; color: var(--text-main);
+        }
 
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center; padding: 0 10%;
         }
 
+        .badge {
+            background: var(--badge-bg); border: 1px solid var(--bento-border);
+            padding: 8px 16px; border-radius: 100px;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+            margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            color: var(--text-main);
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 8vw, 6rem);
             font-weight: 800; letter-spacing: -3px;
             line-height: 0.9; margin-bottom: 30px;
+            min-height: 1.2em;
         }
 
         .hero h1 span {
@@ -71,195 +115,507 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .badge {
-            background: var(--badge-bg); border: 1px solid var(--bento-border);
-            padding: 8px 16px; border-radius: 100px;
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
-            margin-bottom: 20px; color: var(--text-main);
+        #typewriter::after {
+            content: '|'; margin-left: 5px; color: #00b4cc; animation: blink 0.8s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .bento-container {
+            max-width: 1200px; margin: 0 auto 100px;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 350px; gap: 25px; padding: 20px;
         }
 
-        /* --- STYLES DES SECTIONS --- */
-        .pole-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        
-        .pole-header {
-            width: 100%; background: linear-gradient(90deg, var(--lumy-cyan), var(--lumy-purple));
-            padding: 15px 30px; border-radius: 15px; margin-bottom: 30px;
-            display: flex; align-items: center;
+        .bento-item {
+            background: var(--bento-bg); border-radius: 32px; padding: 45px;
+            backdrop-filter: blur(20px); border: 1px solid var(--bento-border); 
+            display: flex; flex-direction: column; justify-content: space-between;
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.8s ease;
+            position: relative; overflow: hidden;
         }
 
-        .pole-header h2 {
-            font-family: 'Orbitron'; font-size: 1.1rem; color: white !important;
-            letter-spacing: 3px; text-transform: uppercase; margin: 0;
+        .bento-item:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
+        .big { grid-column: span 3; }
+
+        .bento-item h3 { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 3px; color: #86868b; text-transform: uppercase; }
+        .bento-item p { font-size: 1.8rem; font-weight: 700; margin-top: 15px; max-width: 600px; }
+
+        .system-stats { display: flex; gap: 40px; margin-top: 30px; }
+        .stat-box { display: flex; flex-direction: column; }
+        .stat-label { font-size: 0.6rem; font-weight: 800; color: #b4b4bb; letter-spacing: 1px; }
+        .stat-value { font-family: 'Orbitron'; font-size: 1.2rem; color: #00b4cc; }
+
+        .laptop-section { height: 150vh; position: relative; }
+        .sticky { position: sticky; top: 0; height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 1500px; }
+        .laptop { width: 650px; height: 410px; transform-style: preserve-3d; opacity: 0; transition: 0.5s; }
+        .lid { 
+            position: absolute; bottom: 12px; width: 100%; height: 100%;
+            background: var(--lid-bg); border-radius: 16px 16px 2px 2px;
+            transform-origin: bottom; transform: rotateX(-90deg);
+            border: 1px solid var(--bento-border); overflow: hidden;
         }
+        .screen-ui { width: 100%; height: 100%; background: #000; opacity: 0; display: flex; justify-content: center; align-items: center; }
+        .screen-ui h2 { color: white; font-family: 'Orbitron'; letter-spacing: 15px; font-size: 2.5rem; text-shadow: 0 0 20px var(--lumy-cyan); }
+        .base { position: absolute; bottom: 0; width: 100%; height: 14px; background: var(--laptop-base); border-radius: 0 0 25px 25px; box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1); }
 
-        .postes-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
+        @media (max-width: 900px) {
+            .bento-container { grid-template-columns: 1fr; grid-auto-rows: auto; }
+            .big { grid-column: span 1; }
+            .laptop { width: 90%; }
         }
-
-        .poste-card {
-            background: var(--bento-bg); border: 1px solid var(--bento-border);
-            border-radius: 24px; padding: 30px; backdrop-filter: blur(10px);
-            transition: all 0.3s ease; display: flex; flex-direction: column;
-        }
-
-        .poste-card:hover { transform: translateY(-5px); border-color: var(--lumy-cyan); }
-
-        .poste-card i {
-            font-size: 2rem; margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--lumy-cyan), var(--lumy-purple));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .btn-postuler {
-            margin-top: auto; background: transparent; border: 2px solid var(--lumy-blue-start);
-            color: var(--lumy-blue-start) !important; padding: 10px; border-radius: 8px;
-            text-align: center; text-decoration: none; font-family: 'Orbitron'; font-size: 0.7rem;
-            font-weight: 900; text-transform: uppercase; transition: 0.3s;
-        }
-
-        .poste-card:hover .btn-postuler {
-            background: linear-gradient(135deg, var(--lumy-blue-start), var(--lumy-blue-end));
-            color: #fff !important; border-color: transparent;
-        }
-
-        .manifeste-box {
-            max-width: 900px; margin: 80px auto; padding: 40px; text-align: center;
-            background: rgba(255, 255, 255, 0.03); border-radius: 30px;
-            border: 1px solid var(--bento-border);
-        }
-
-        footer { text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.6; line-height: 1.8; }
-
-        @media (max-width: 768px) { .postes-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
-<body data-theme="dark">
+<body>
 
 <div id="particles-js"></div>
+
+<div class="lang-picker">
+    <i class="fas fa-language" style="color: #00b4cc;"></i>
+    <select id="langSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="fr" selected>Français</option>
+    </select>
+</div>
 
 <section class="hero">
     <div class="badge" id="hero-badge">LUMY // CORE ACCESS</div>
     <h1>Engineering<br><span id="typewriter"></span></h1>
-    <p id="hero-desc" style="color: #86868b; max-width: 600px; font-weight: 500; font-size: 1.1rem;">
-        Lumy est le premier label européen unifiant Workplace, OS et Réseau Social sous une bannière souveraine.
-    </p>
+    <p id="hero-desc" style="color: #86868b; max-width: 550px; font-weight: 500; font-size: 1.1rem;">Lumy is the premier label empowering elite engineers to build their own technological empires.</p>
+            </div>
 </section>
 
-<section class="pole-section">
-    <div class="pole-header">
+<div class="pole-section">
+    <div class="pole-header" style="background: linear-gradient(90deg, #00f2ff, #0056ff);">
         <h2><i class="fas fa-rocket"></i> NOS EMPIRES EN CONSTRUCTION</h2>
     </div>
     
     <div class="postes-grid">
-        <div class="poste-card" style="grid-column: span 2;">
+        <div class="poste-card" style="aspect-ratio: auto; min-height: 350px; grid-column: span 2;">
             <i class="fas fa-briefcase"></i>
             <h4>LUMY WORKPLACE</h4>
-            <span style="font-size: 0.7rem; opacity: 0.6; margin-bottom: 10px;">L'ALTERNATIVE UNIFIÉE</span>
-            <p style="color: #86868b; margin-bottom: 20px;">
-                Imaginez la puissance des outils collaboratifs (Mail, Drive, Visio) fusionnée avec un système de gestion complet (ERP/CRM, pointeuse, facturation). 
-                <strong>Un écosystème unique pour remplacer les solutions fragmentées non-européennes.</strong>
+            <span>L'Ultra-Souveraineté unifiée</span>
+            <p style="font-size: 0.9rem; font-weight: 400; color: #86868b; margin-bottom: 15px;">
+                Imaginez la puissance de <strong>Google Workspace</strong> fusionnée avec la rigueur d'un <strong>ERP/CRM (type Dolibarr)</strong>. 
+                Mails, Docs, Visio, mais aussi gestion de planning, pointeuse numérique et pilotage d'entreprise. 
+                <strong>Un seul outil, zéro espionnage.</strong>
             </p>
-            <div style="font-family: 'Orbitron'; font-size: 0.8rem; color: var(--lumy-cyan);">STATUS: ALPHA TEST</div>
+            <div class="stat-box" style="margin-bottom: 15px;">
+                <span class="stat-label">STATUS</span>
+                <span class="stat-value" style="font-size: 0.8rem;">PROTOTYPAGE ALPHA</span>
+            </div>
         </div>
 
-        <div class="poste-card">
+        <div class="poste-card" style="aspect-ratio: auto;">
             <i class="fas fa-share-nodes"></i>
             <h4>LUMY LINK</h4>
-            <span style="font-size: 0.7rem; opacity: 0.6; margin-bottom: 10px;">SOCIAL PRO UE</span>
-            <p style="color: #86868b;">La plateforme de mise en relation professionnelle conçue pour les entreprises européennes. Sans espionnage, centrée sur l'expertise.</p>
+            <span>Réseau Social Pro UE</span>
+            <p style="font-size: 0.8rem; font-weight: 400; color: #86868b;">
+                Le LinkedIn Européen. Une plateforme de mise en relation pro et entreprise, sans algorithme de manipulation, centrée sur la méritocratie et l'ingénierie.
+            </p>
         </div>
 
-        <div class="poste-card" style="grid-column: span 3; flex-direction: row; align-items: center; gap: 30px;">
-            <i class="fas fa-compact-disc" style="font-size: 4rem;"></i>
-            <div>
-                <h4>LUMY OS</h4>
-                <p style="color: #86868b;">
-                    Notre système d'exploitation optimisé pour contrer l'obsolescence programmée. 
-                    Il redonne vie aux machines performantes délaissées par les géants de la tech.
-                </p>
+        <div class="poste-card" style="aspect-ratio: auto; grid-column: span 3;">
+            <div style="display: flex; align-items: center; gap: 30px; text-align: left;">
+                <i class="fas fa-compact-disc" style="font-size: 4rem;"></i>
+                <div>
+                    <h4>LUMY OS</h4>
+                    <span>Le Cœur du Système</span>
+                    <p style="font-size: 0.9rem; font-weight: 400; color: #86868b;">
+                        Un système d'exploitation souverain conçu pour sauver le matériel obsolète. 
+                        Rapide, incassable, et optimisé pour le travail d'élite. 
+                        <strong>L'alternative finale à Windows et macOS.</strong>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section class="manifeste-box">
-    <h2 style="color: var(--lumy-cyan); margin-bottom: 20px; font-family: 'Orbitron';">SOUVERAINETÉ NUMÉRIQUE EUROPÉENNE</h2>
-    <p style="font-size: 1.1rem; color: #cccccc; margin-bottom: 20px;">
-        Le monde numérique arrive à un tournant. Entre abandon logiciel et obsolescence forcée, nous bâtissons une alternative durable. 
-        <strong>Lumy Corp ne cherche pas des exécutants, mais des architectes de la liberté technologique.</strong>
+    <section style="max-width: 900px; margin: 40px auto; padding: 30px; text-align: center; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff;">
+
+    <h2 style="color: #00d4ff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+        Bâtissons l'Alternative : L'Engagement Lumy Corp
+    </h2>
+
+    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 25px; font-weight: 300;">
+        Le monde numérique arrive à un tournant critique. Avec l'abandon de **Windows 10** et l'obsolescence programmée des ordinateurs déclarés "incompatibles", des millions de machines performantes risquent de devenir des déchets électroniques. 
     </p>
-    <div style="background: rgba(0, 242, 255, 0.05); padding: 15px; border-radius: 10px; font-style: italic;">
-        "Offrir une seconde vie au matériel et garantir une indépendance totale face aux monopoles."
-    </div>
-</section>
 
-<section class="pole-section">
-    <div class="pole-header" style="background: linear-gradient(90deg, #9b00db, #00b4cc);">
-        <h2><i class="fas fa-users"></i> REJOINDRE LE CORPS DES BÉNÉVOLES</h2>
+    <div style="background: rgba(0, 212, 255, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 25px;">
+        <p style="margin: 0; font-style: italic; font-size: 1.1rem;">
+            "Notre mission : Offrir une seconde vie au matériel et garantir une <strong>souveraineté numérique européenne</strong> totale."
+        </p>
+    </div>
+
+    <p style="font-size: 1rem; line-height: 1.6; color: #cccccc;">
+        Lumy Corp développe des solutions basées sur des noyaux optimisés et des infrastructures Cloud sécurisées pour contrer les monopoles technologiques. Nous ne cherchons pas de simples exécutants, mais des architectes du changement capables de coder pour une cause humanitaire et durable.
+    </p>
+
+    <hr style="width: 50px; border: 1px solid #00d4ff; margin: 30px auto;">
+
+    <h3 style="color: #ffffff; margin-bottom: 15px;">Explorez nos pôles et rejoignez l'unité :</h3>
+</section>
+    
+<style>
+    /* --- CONFIGURATION DES COULEURS LUMY DE TON IMAGE --- */
+    :root {
+        --lumy-blue-start: #00dbde; 
+        --lumy-blue-end: #0056ff;   
+    }
+
+    .pole-section {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+
+    .pole-header {
+        width: 100%;
+        background: linear-gradient(90deg, var(--lumy-cyan), var(--lumy-purple));
+        padding: 15px 30px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .pole-header h2 {
+        font-family: 'Orbitron';
+        font-size: 1.2rem;
+        color: white !important;
+        letter-spacing: 4px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .postes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .poste-card {
+        background: var(--bento-bg);
+        border: 1px solid var(--bento-border);
+        border-radius: 20px;
+        padding: 25px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+
+    .poste-card:hover {
+        transform: scale(1.05);
+        border-color: var(--lumy-cyan);
+        box-shadow: 0 15px 30px rgba(0, 242, 255, 0.1);
+    }
+
+    /* Tes logos gardent le dégradé Cyan/Purple LumyCorp */
+    .poste-card i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        background: linear-gradient(135deg, var(--lumy-cyan), var(--lumy-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .poste-card h4 {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .poste-card span {
+        font-size: 0.7rem;
+        font-weight: 600;
+        opacity: 0.6;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    /* --- STYLE DU BOUTON POSTULER (COULEURS DE TON IMAGE) --- */
+    .btn-postuler {
+        background: transparent;
+        border: 2px solid var(--lumy-blue-start);
+        color: var(--lumy-blue-start) !important;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-family: 'Orbitron';
+        font-size: 0.6rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+
+    .poste-card:hover .btn-postuler {
+        background: linear-gradient(135deg, var(--lumy-blue-start), var(--lumy-blue-end));
+        color: #fff !important;
+        border-color: transparent;
+        box-shadow: 0 0 10px var(--lumy-blue-start);
+    }
+</style>
+
+<div class="pole-section">
+    <div class="pole-header">
+        <h2><i class="fas fa-microchip"></i> Pôle OS & Kernel</h2>
     </div>
     <div class="postes-grid">
         <div class="poste-card">
             <i class="fas fa-terminal"></i>
-            <h4>DÉV KERNEL / RUST</h4>
-            <span>POLE OS</span>
-            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Rejoindre</a>
+            <h4>Développeur Kernel</h4>
+            <span>C++ / Rust / Liquorix</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fas fa-desktop"></i>
+            <h4>UI Designer Zen</h4>
+            <span>KDE Plasma / GTK</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fas fa-layer-group"></i>
+            <h4>Architecte Structure</h4>
+            <span>Low Latency / RAM Opti</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+    </div>
+</div>
+
+<div class="pole-section">
+    <div class="pole-header" style="background: linear-gradient(90deg, #9b00db, #00b4cc);">
+        <h2><i class="fas fa-code"></i> Pôle Web & Cloud</h2>
+    </div>
+    <div class="postes-grid">
+  <div class="poste-card">
+        <i class="fas fa-sitemap"></i>
+        <h4>Lead Orchestrator</h4>
+        <span>Directives & Coordination</span>
+        <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+   </div>
+        <div class="poste-card">
+            <i class="fab fa-html5"></i>
+            <h4>Expert HTML5</h4>
+            <span>Sémantique & SEO</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fab fa-css3-alt"></i>
+            <h4>Designer CSS</h4>
+            <span>Animations & Responsive</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fab fa-js"></i>
+            <h4>Dev JavaScript</h4>
+            <span>ES6+ / Logique Web</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
         </div>
         <div class="poste-card">
             <i class="fab fa-react"></i>
-            <h4>FRONT-END DÉV</h4>
-            <span>POLE WEB</span>
-            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Rejoindre</a>
+            <h4>Front-end Dev</h4>
+            <span>React / Tailwind CSS</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
         </div>
         <div class="poste-card">
             <i class="fas fa-server"></i>
-            <h4>BACK-END / CLOUD</h4>
-            <span>POLE INFRA</span>
-            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Rejoindre</a>
+            <h4>Back-end Dev</h4>
+            <span>Node.js / API Rest</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fas fa-database"></i>
+            <h4>Database Admin</h4>
+            <span>PostgreSQL / Redis</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+    </div>
+</div>
+
+<div class="pole-section">
+    <div class="pole-header" style="background: linear-gradient(90deg, #ff0055, #9b00db);">
+        <h2><i class="fas fa-camera-retro"></i> Pôle Médias & Sociaux</h2>
+    </div>
+    <div class="postes-grid">
+         <div class="poste-card">
+        <i class="fas fa-sitemap"></i>
+        <h4>Lead Orchestrator</h4>
+        <span>Directives & Coordination</span>
+        <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+   </div>
+        <div class="poste-card">
+            <i class="fas fa-video"></i>
+            <h4>Monteur Vidéo</h4>
+            <span>VFX / After Effects</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fas fa-pen-nib"></i>
+            <h4>Graphiste</h4>
+            <span>Identité Visuelle</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Creative Lead</h4>
+            <span>Idées & Stratégie Posts</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+    </div>
+</div>
+
+<div class="pole-section">
+    <div class="pole-header" style="background: linear-gradient(90deg, #ffcc00, #ff8800);">
+        <h2><i class="fas fa-briefcase"></i> Pôle Administratif & RH</h2>
+    </div>
+    <div class="postes-grid">
+         <div class="poste-card">
+        <i class="fas fa-sitemap"></i>
+        <h4>Lead Orchestrator</h4>
+        <span>Directives & Coordination</span>
+        <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+   </div>
+        <div class="poste-card">
+            <i class="fas fa-users"></i>
+            <h4>Responsable RH</h4>
+            <span>Recrutement & Suivi</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
         </div>
         <div class="poste-card">
             <i class="fas fa-bullhorn"></i>
-            <h4>AMBASSADEUR RH</h4>
-            <span>POLE ADMIN</span>
-            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Rejoindre</a>
+            <h4>Gestion Ambassadeurs</h4>
+            <span>Réseau Étudiants</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
+        </div>
+        <div class="poste-card">
+            <i class="fas fa-tasks"></i>
+            <h4>Project Coordinator</h4>
+            <span>Flux & Échéances</span>
+            <a href="https://lumycorp.com/postulation.html" class="btn-postuler">Postuler</a>
         </div>
     </div>
+</div>
+    
 </section>
 
-<footer>
-    <p>LUMY CORPORATION &copy; 2026 | European Sovereign Initiative</p>
-    <p style="font-size: 0.6rem; margin-top: 10px;">
-        *Note légale : Les noms Google Workspace™ et LinkedIn™ sont cités à titre de comparaison de services. <br>
-        Lumy Corporation est une entité indépendante sans lien d'affiliation avec ces marques.
-    </p>
-</footer>
-
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="navbar.js"></script>
+<script src="footer.js"></script>
+<script src="cookies.js"></script>
+
 <script>
-    // Particles
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 80 },
-            "color": { "value": "#00f2ff" },
-            "line_linked": { "enable": true, "color": "#00f2ff", "opacity": 0.2 },
-            "move": { "enable": true, "speed": 1 }
+    const translations = {
+        en: {
+            heroBadge: "LUMY // CORE ACCESS",
+            heroDesc: "Lumy is the premier label empowering elite engineers to build their own technological empires.",
+            coreTitle: "Lumy_Core_System",
+            coreDesc: "High-performance architecture designed for absolute fluidity and power.",
+            netTitle: "GLOBAL_NETWORK",
+            netDesc: "Direct bridge to international markets.",
+            brandTitle: "Brand_Ambassador",
+            brandDesc: "Representing the peak of engineering through Lumy's global influence.",
+            typewriter: ["the Future", "your Empire", "Innovation", "Pure Power"]
+        },
+        fr: {
+            heroBadge: "LUMY // ACCÈS CORE",
+            heroDesc: "Lumy est le label prestigieux qui permet aux ingénieurs d'élite de bâtir leurs propres empires technologiques.",
+            coreTitle: "Lumy_Système_Core",
+            coreDesc: "Architecture haute performance conçue pour une fluidité et une puissance absolue.",
+            netTitle: "RÉSEAU_GLOBAL",
+            netDesc: "Un pont direct vers les marchés internationaux.",
+            brandTitle: "Ambassadeur_Marque",
+            brandDesc: "Représenter le sommet de l'ingénierie à travers l'influence mondiale de Lumy.",
+            typewriter: ["le Futur", "votre Empire", "l'Innovation", "la Puissance"]
         }
-    });
+    };
+
+    let currentLang = 'fr';
+
+    function changeLanguage() {
+        currentLang = document.getElementById('langSelect').value;
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+            const data = translations[currentLang];
+            document.getElementById('hero-badge').innerText = data.heroBadge;
+            document.getElementById('hero-desc').innerText = data.heroDesc;
+            document.getElementById('core-title').innerText = data.coreTitle;
+            document.getElementById('core-desc').innerText = data.coreDesc;
+            document.getElementById('net-title').innerText = data.netTitle;
+            document.getElementById('net-desc').innerText = data.netDesc;
+            document.getElementById('brand-title').innerText = data.brandTitle;
+            document.getElementById('brand-desc').innerText = data.brandDesc;
+            document.body.style.opacity = 1;
+        }, 500);
+    }
+
+    // --- LOGIQUE MODE SOMBRE / JOUR ---
+    function initTheme() {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.body.setAttribute("data-theme", isDark ? "dark" : "light");
+        initParticles(isDark ? "#ffffff" : "#001a33");
+    }
+
+    function initParticles(color) {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": color },
+                "opacity": { "value": 0.4 },
+                "size": { "value": 2.5, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": color, "opacity": 0.3, "width": 1 },
+                "move": { "enable": true, "speed": 0.6 }
+            },
+            "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
+            "retina_detect": true
+        });
+    }
 
     // Typewriter
-    const phrases = ["le Futur", "votre Empire", "l'Innovation", "la Souveraineté"];
     let i = 0, j = 0, isDeleting = false;
-    const el = document.getElementById('typewriter');
+    const typewriterElement = document.getElementById('typewriter');
 
     function loop() {
-        const current = phrases[i];
-        el.innerHTML = isDeleting ? current.substring(0, j - 1) : current.substring(0, j + 1);
+        const phrases = translations[currentLang].typewriter;
+        const currentFullPhrase = phrases[i];
+        typewriterElement.innerHTML = isDeleting ? currentFullPhrase.substring(0, j - 1) : currentFullPhrase.substring(0, j + 1);
         j = isDeleting ? j - 1 : j + 1;
-        if (!isDeleting && j === current.length) { isDeleting = true; setTimeout(loop, 2000); return; }
+        if (!isDeleting && j === currentFullPhrase.length) { isDeleting = true; setTimeout(loop, 2000); return; }
         if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % phrases.length; }
-        setTimeout(loop, isDeleting ? 50 : 100);
+        setTimeout(loop, isDeleting ? 60 : 120);
     }
-    loop();
-</script>
 
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        loop();
+    });
+
+    // Écouteur de changement de thème PC
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initTheme);
+
+    // Laptop Scroll
+    window.addEventListener('scroll', () => {
+        const trigger = document.querySelector('.laptop-section');
+        const scroll = window.scrollY - trigger.offsetTop;
+        const zoneHeight = trigger.offsetHeight - window.innerHeight;
+        if (scroll > 0) {
+            let p = Math.min(scroll / zoneHeight, 1);
+            const lap = document.getElementById('lap');
+            lap.style.opacity = p * 2;
+            lap.style.transform = `translateY(${(1-p)*50}px) scale(${0.9 + p*0.1})`;
+            document.getElementById('lid').style.transform = `rotateX(${Math.min(-90 + (p * 98), 5)}deg)`;
+            document.getElementById('ui').style.opacity = p > 0.6 ? (p - 0.6) * 2.5 : 0;
+        }
+    });
+</script>
 </body>
-</html>
+</html> 
