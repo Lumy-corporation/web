@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMY STATE | Souveraineté Nationale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Couleurs Lumy Signature */
+            --lumy-gradient: linear-gradient(135deg, #38BDF8 0%, #C084FC 100%);
+            --lumy-blue: #38BDF8;
+            
+            /* Couleurs Google Standard */
+            --google-blue: #1a73e8;
+            --google-gray: #5f6368;
+            --google-bg-gray: #f8f9fa;
+            --google-border: #dadce0;
+            --text-dark: #202124;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            font-family: 'Google Sans', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            height: 64px;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--google-border);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1000;
+        }
+
+        .lumy-logo {
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .gradient-text {
+            background: var(--lumy-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- BOUTONS LUMY --- */
+        .btn-lumy {
+            background: var(--lumy-gradient);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .btn-lumy:hover {
+            box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px rgba(60,64,67,0.15);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 100px 10% 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--google-gray);
+            max-width: 850px;
+            margin: 0 auto 40px;
+        }
+
+        /* --- GRILLE DES PÔLES (ETAT/ARMEE/ETC) --- */
+        .poles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 0 24px;
+        }
+
+        .pole-card {
+            padding: 40px;
+            border: 1px solid var(--google-border);
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .pole-card:hover {
+            background: var(--google-bg-gray);
+            border-color: var(--lumy-blue);
+        }
+
+        /* --- ICONES AVEC DEGRADE LUMY --- */
+        .pole-card i.gradient-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+            background: var(--lumy-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* --- SECTION MIGRATION --- */
+        .migration-section {
+            background-color: var(--google-bg-gray);
+            padding: 80px 10%;
+            border-top: 1px solid var(--google-border);
+            border-bottom: 1px solid var(--google-border);
+        }
+
+        .migration-box {
+            background: white;
+            border: 1px solid var(--google-border);
+            border-radius: 8px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .migration-content { flex: 1.5; }
+
+        .price-box {
+            flex: 1;
+            text-align: center;
+            padding: 40px;
+            border-left: 1px solid var(--google-border);
+        }
+
+        @media (max-width: 900px) {
+            .migration-box { flex-direction: column; padding: 30px; }
+            .price-box { border-left: none; border-top: 1px solid var(--google-border); padding-top: 40px; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="lumy-logo">
+        <span class="gradient-text">LUMY</span> <span>ÉTAT & DÉFENSE</span>
+    </div>
+    <a href="https://lumycorp.com/recrutement.html" class="btn-lumy">Contact Ministère</a>
+</header>
+
+<section class="hero">
+    <h1>La Souveraineté Numérique au service de <br> <span class="gradient-text">l'Intérêt Supérieur de la Nation.</span></h1>
+    <p>Sécurisez les infrastructures critiques et les administrations avec un écosystème souverain d'élite, indépendant des puissances étrangères.</p>
+    <div style="display: flex; gap: 15px; justify-content: center;">
+        <a href="https://lumycorp.com/recrutement.html" class="btn-lumy">Démarrer le déploiement</a>
+        <a href="#" class="btn-lumy" style="background: white; color: var(--text-dark) !important; border: 1px solid var(--google-border);">Audit de sécurité</a>
+    </div>
+</section>
+
+<div class="poles-grid">
+    <div class="pole-card">
+        <i class="fas fa-shield-halved gradient-icon"></i>
+        <h3>Pôle Armée</h3>
+        <p>Communications tactiques chiffrées post-quantique et Cloud déconnecté pour une résilience totale en opération.</p>
+    </div>
+    <div class="pole-card">
+        <i class="fas fa-landmark gradient-icon"></i>
+        <h3>Pôle Gouvernement</h3>
+        <p>Hébergement des données sensibles de l'État sur sol souverain avec une garantie "Zéro Backdoor".</p>
+    </div>
+    <div class="pole-card">
+        <i class="fas fa-file-invoice gradient-icon"></i>
+        <h3>Services Administratifs</h3>
+        <p>Digitalisation massive des mairies et rectorats. Réduction des coûts et indépendance logicielle totale.</p>
+    </div>
+    <div class="pole-card">
+        <i class="fas fa-heart-pulse gradient-icon"></i>
+        <h3>Santé & Médical</h3>
+        <p>Protection du secret médical (HDS) et protection des centres hospitaliers contre les cyber-extorsions.</p>
+    </div>
+</div>
+
+<section class="migration-section">
+    <div class="migration-box">
+        <div class="migration-content">
+            <span style="color: var(--google-blue); font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">Transfert Souverain</span>
+            <h2 style="font-size: 32px; font-weight: 400; margin-top: 10px;">Migrez vos ministères en un clic.</h2>
+            <p style="color: var(--google-gray); margin-bottom: 24px;">
+                Quittez Microsoft 365 ou Google Workspace instantanément. Notre outil dédié transfère l'intégralité des agents, mails et documents vers l'infrastructure Lumy.
+            </p>
+            <div style="display: flex; gap: 20px;">
+                <i class="fab fa-google" style="font-size: 24px; color: #4285F4;"></i>
+                <i class="fab fa-windows" style="font-size: 24px; color: #00A4EF;"></i>
+                <span style="font-size: 14px; color: var(--google-gray);">— Migration automatique certifiée</span>
+            </div>
+        </div>
+        <div class="price-box">
+            <div style="font-size: 14px; font-weight: 700; color: var(--google-gray);">TARIF RÉGALIEN</div>
+            <div style="font-size: 64px; font-weight: 400; color: var(--text-dark); margin: 10px 0;">6€</div>
+            <p style="color: var(--google-gray); font-size: 14px;">par agent / mois</p>
+            <p style="font-size: 11px; color: var(--google-blue); font-weight: 700; margin-top: 15px;">SÉCURITÉ DÉFENSE INCLUSE</p>
+        </div>
+    </div>
+</section>
+
+<section style="padding: 100px 24px; text-align: center;">
+    <h2 style="font-size: 28px; font-weight: 400; margin-bottom: 24px;">L'indépendance ne se négocie pas. Elle se construit.</h2>
+    <a href="https://lumycorp.com/recrutement.html" class="btn-lumy" style="padding: 15px 40px; font-size: 16px;">Prendre contact avec le conseiller Défense</a>
+</section>
+
+<footer style="padding: 40px 24px; border-top: 1px solid var(--google-border); text-align: center; color: var(--google-gray); font-size: 12px;">
+    © 2026 Lumy Corporation - Département Affaires Publiques & Souveraineté Digitale.
+</footer>
+
+</body>
+</html>
