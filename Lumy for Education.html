@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMY for Education | L'école souveraine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --lumy-gradient: linear-gradient(135deg, #38BDF8 0%, #C084FC 100%);
+            --google-blue: #1a73e8;
+            --google-gray: #5f6368;
+            --google-border: #dadce0;
+            --text-dark: #202124;
+            --bg-light: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            font-family: 'Google Sans', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            height: 64px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--google-border);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .lumy-txt {
+            background: var(--lumy-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-lumy {
+            background: var(--lumy-gradient);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .btn-lumy:hover {
+            box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px rgba(60,64,67,0.15);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 100px 10% 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--google-border);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--google-gray);
+            max-width: 800px;
+            margin: 0 auto 32px;
+        }
+
+        /* --- GRID --- */
+        .grid-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            border: 1px solid var(--google-border);
+            border-radius: 8px;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            background-color: var(--bg-light);
+            border-color: #38BDF8;
+        }
+
+        /* --- LOGOS EN DEGRADE --- */
+        .feature-card i.gradient-icon {
+            font-size: 40px;
+            margin-bottom: 24px;
+            background: var(--lumy-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* --- SECTION GRISE (PRIX / MIGRATION) --- */
+        .bg-section {
+            background-color: var(--bg-light);
+            padding: 80px 10%;
+            border-top: 1px solid var(--google-border);
+            border-bottom: 1px solid var(--google-border);
+        }
+
+        .migration-box {
+            background: white;
+            border: 1px solid var(--google-border);
+            border-radius: 8px;
+            padding: 48px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 36px; }
+            .migration-box { flex-direction: column; text-align: center; padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <span class="lumy-txt">LUMY</span> <span style="color: var(--google-gray);">for Education</span>
+    </div>
+    <div style="display: flex; gap: 20px; align-items: center;">
+        <a href="#" style="color: var(--text-dark); text-decoration: none; font-size: 14px; font-weight: 500;">Connexion ENT</a>
+        <a href="https://lumycorp.com/recrutement.html" class="btn-lumy">Inscrire mon établissement</a>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>L'éducation mérite sa <br> <span class="lumy-txt">propre souveraineté.</span></h1>
+    <p>Protégez les données de vos élèves et étudiants avec un écosystème d'élite, conçu pour la performance et le respect de la vie privée.</p>
+    <div style="display: flex; gap: 16px; justify-content: center;">
+        <a href="https://lumycorp.com/recrutement.html" class="btn-lumy">Démarrer Lumy for Schools</a>
+        <a href="#" class="btn-lumy" style="background: white; color: var(--google-blue) !important; border: 1px solid var(--google-border);">Comparer avec Google Classroom</a>
+    </div>
+</section>
+
+<div class="grid-container">
+    <div class="feature-card">
+        <i class="fas fa-user-shield gradient-icon"></i>
+        <h3>Zéro Traçage Pub</h3>
+        <p>Contrairement aux GAFAM, Lumy n'analyse pas les devoirs ou les mails des élèves pour créer des profils publicitaires. Les données restent à l'école.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-recycle gradient-icon"></i>
+        <h3>Sauvez vos vieux PC</h3>
+        <p>Installez <strong>Lumy OS</strong> sur vos anciens parcs informatiques. Donnez une seconde vie à vos ordinateurs déclarés obsolètes par Windows.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-graduation-cap gradient-icon"></i>
+        <h3>Outils d'Élite</h3>
+        <p>Classroom, Meet HD, Drive partagé et Suite Bureautique complète. Tout ce qu'il faut pour enseigner au 21ème siècle.</p>
+    </div>
+</div>
+
+<section class="bg-section">
+    <div class="migration-box">
+        <div style="flex: 1.5; text-align: left;">
+            <span style="color: var(--google-blue); font-weight: 700; font-size: 12px; text-transform: uppercase;">Migration Instantanée</span>
+            <h2 style="font-size: 32px; font-weight: 400; margin: 12px 0 20px;">Passez de Google/Microsoft à Lumy en un clic.</h2>
+            <p style="color: var(--google-gray); margin-bottom: 24px;">
+                Administrateurs d'universités ou de rectorats : transférez l'intégralité des comptes étudiants et des cours en 2 minutes via nos API de migration sécurisées.
+            </p>
+            <div style="display: flex; gap: 30px;">
+                <div><i class="fab fa-google" style="color: #4285F4;"></i> <span style="font-size: 14px; margin-left: 5px;">Workspace Edu</span></div>
+                <div><i class="fab fa-windows" style="color: #00A4EF;"></i> <span style="font-size: 14px; margin-left: 5px;">Office 365 Edu</span></div>
+            </div>
+        </div>
+        <div style="flex: 1; text-align: center; border-left: 1px solid var(--google-border); padding-left: 40px;">
+            <div style="font-size: 14px; color: var(--google-gray); margin-bottom: 8px;">TARIF ÉDUCATION</div>
+            <div style="font-size: 56px; font-weight: 400; color: var(--text-dark);">2€</div>
+            <p style="font-size: 14px; color: var(--google-gray);">par utilisateur / mois</p>
+            <p style="font-size: 11px; color: var(--google-blue); font-weight: 700; margin-top: 10px;">SÉCURITÉ MAXIMALE INCLUSE</p>
+        </div>
+    </div>
+</section>
+
+<section style="padding: 80px 24px; text-align: center; max-width: 800px; margin: 0 auto;">
+    <h2 style="font-size: 28px; font-weight: 400; margin-bottom: 24px;">L'informatique durable commence en classe.</h2>
+    <p style="color: var(--google-gray); margin-bottom: 40px;">
+        En choisissant Lumy, vous apprenez à la prochaine génération l'importance de la souveraineté numérique et de l'écologie technologique.
+    </p>
+    <a href="https://lumycorp.com/recrutement.html" class="btn-lumy" style="padding: 15px 40px; font-size: 16px;">Contacter le pôle Éducation</a>
+</section>
+
+<footer style="padding: 40px 24px; border-top: 1px solid var(--google-border); text-align: center; color: var(--google-gray); font-size: 12px;">
+    © 2026 Lumy Corporation - Pôle Souveraineté Éducative. Engineering for a better world.
+</footer>
+
+</body>
+</html>
