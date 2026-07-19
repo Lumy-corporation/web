@@ -182,7 +182,18 @@
         .btn-secondary {
             border: 1px solid var(--google-border);
             color: var(--text-dark);
-            margin-left: 15px;
+        }
+
+        /* Nouveau style pour le bouton Lumy Mail en dessous */
+        .btn-lumy-mail {
+            margin-top: 20px;
+            background: transparent;
+            border: 2px solid transparent;
+            background-image: linear-gradient(var(--bg-light), var(--bg-light)), var(--lumy-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: var(--text-dark);
+            box-shadow: 0 10px 20px rgba(192, 132, 252, 0.15);
         }
 
         .btn-lumy:hover { transform: translateY(-2px); opacity: 0.9; }
@@ -218,9 +229,17 @@
         </div>
     </div>
 
-    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+    <!-- Conteneur des boutons principaux -->
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; align-items: center;">
         <a href="https://lumycorp.com/recrutement.html" class="btn-lumy btn-primary">Rejoindre le Label <i class="fas fa-arrow-right"></i></a>
         <a href="#" class="btn-lumy btn-secondary">Découvrir Lumy OS</a>
+    </div>
+
+    <!-- Nouveau bouton de pré-inscription en dessous, bien centré -->
+    <div style="display: flex; justify-content: center;">
+        <a href="https://tally.so/r/ODeaMg" target="_blank" class="btn-lumy btn-lumy-mail">
+            <i class="fas fa-envelope" style="color: var(--lumy-purple);"></i> S'inscrire à l'avant-première Lumy Mail
+        </a>
     </div>
 </section>
 
