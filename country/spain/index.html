@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumy for Spain | Cloud Soberano y Trabajo Colaborativo en España</title>
+    <meta name="description" content="Descubra Lumy Workplace en España. La alternativa europea a Google y Microsoft. Correo profesional, almacenamiento en la nube y suite ofimática 100% RGPD.">
+    
+    <!-- Balise SEO Géolocalisation pour Google -->
+    <link rel="alternate" hreflang="es" href="https://lumycorp.com/country/spain/" />
+    <link rel="alternate" hreflang="x-default" href="https://lumycorp.com/" />
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --purple: #7c3aed;
+            --dark: #0f172a;
+            --gray-bg: #f8fafc;
+            --gray-border: #e2e8f0;
+            --text: #334155;
+            --text-muted: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { color: var(--text); background: #ffffff; line-height: 1.6; }
+
+        /* Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 8%; border-bottom: 1px solid var(--gray-border); position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); z-index: 1000; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 24px; height: 24px; background: linear-gradient(135deg, #00c6ff, #0072ff); border-radius: 6px; }
+        .country-pill { background: #fef2f2; color: #dc2626; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 12px; border: 1px solid #fca5a5; }
+        nav { display: flex; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.2s; }
+        .btn-primary:hover { background: var(--primary-hover); }
+
+        /* Hero */
+        .hero { text-align: center; padding: 4.5rem 5% 3rem; max-width: 1050px; margin: 0 auto; }
+        .tagline { background: #eff6ff; color: var(--primary); font-size: 0.85rem; font-weight: 600; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 3.1rem; font-weight: 800; color: var(--dark); line-height: 1.15; margin-bottom: 1.2rem; }
+        .hero h1 span { color: var(--purple); }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 780px; margin: 0 auto 2rem; }
+        .hero-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3.5rem; }
+
+        /* Badges */
+        .badges-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; text-align: left; }
+        .badge-item { display: flex; gap: 12px; align-items: flex-start; font-size: 0.85rem; }
+        .badge-item strong { display: block; color: var(--dark); }
+        .badge-item span { color: var(--text-muted); }
+
+        /* Section Soberanía */
+        .sovereignty-section { background: var(--gray-bg); padding: 5rem 8%; border-top: 1px solid var(--gray-border); border-bottom: 1px solid var(--gray-border); margin-top: 3rem; }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 3.5rem; }
+        .section-tag { color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.5rem; }
+        .section-title { font-size: 2.2rem; color: var(--dark); font-weight: 800; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+        .card { background: white; border: 1px solid var(--gray-border); border-radius: 12px; padding: 2rem; }
+        .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .card h3 { color: var(--dark); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Pricing Section */
+        .pricing-section { padding: 5rem 5%; text-align: center; }
+        .pricing-grid { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
+        .pricing-card { border: 1px solid var(--gray-border); border-radius: 16px; padding: 2.5rem 2rem; width: 330px; background: #ffffff; text-align: left; position: relative; }
+        .pricing-card.popular { border: 2px solid var(--primary); box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.15); }
+        .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 12px; }
+        .plan-price { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin: 1.5rem 0 0.5rem; }
+        .plan-price span { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
+        .pricing-features { list-style: none; margin: 2rem 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.8rem; }
+        .pricing-features li::before { content: "✓"; color: var(--primary); font-weight: bold; margin-right: 8px; }
+
+        /* Footer */
+        footer { padding: 3rem 8% 2rem; border-top: 1px solid var(--gray-border); background: #ffffff; font-size: 0.85rem; color: var(--text-muted); }
+        .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-border); }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="https://lumycorp.com/" class="logo">
+            <div class="logo-icon"></div> Lumy Workplace <span class="country-pill">🇪🇸 España</span>
+        </a>
+        <nav>
+            <a href="#soberania">Soberanía y Seguridad</a>
+            <a href="#precios">Precios España</a>
+            <a href="#herramientas">Herramientas</a>
+        </nav>
+        <div>
+            <a href="#precios" class="btn-primary">Prueba Gratis 14 Días</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="tagline">🇪🇸 Suite en la nube adaptada a las Pymes en España</span>
+        <h1>Trabaje en equipo en España.<br><span>Con total privacidad y soberanía.</span></h1>
+        <p>Lumy Workplace combina todas sus herramientas colaborativas en una suite segura, accesible y 100% europea. La mejor alternativa a Google Workspace y Microsoft 365 para empresas y autónomos en España.</p>
+        
+        <div class="hero-buttons">
+            <a href="#precios" class="btn-primary" style="padding: 0.8rem 1.8rem;">Comenzar Prueba Gratuita →</a>
+        </div>
+
+        <div class="badges-grid">
+            <div class="badge-item">
+                <span style="font-size: 1.5rem;">🇪🇺</span>
+                <div><strong>Alojado en la UE</strong><span>Servidores europeos</span></div>
+            </div>
+            <div class="badge-item">
+                <span style="font-size: 1.5rem;">🛡️</span>
+                <div><strong>Cumplimiento RGPD</strong><span>Protección AEPD completa</span></div>
+            </div>
+            <div class="badge-item">
+                <span style="font-size: 1.5rem;">🔒</span>
+                <div><strong>Sin US Cloud Act</strong><span>Sus datos no salen de la UE</span></div>
+            </div>
+            <div class="badge-item">
+                <span style="font-size: 1.5rem;">💳</span>
+                <div><strong>Precios Adaptados</strong><span>Facturación directa en Euros (€)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Lumy Spain Section -->
+    <section class="sovereignty-section" id="soberania">
+        <div class="section-header">
+            <span class="section-tag">Soberanía Digital para España</span>
+            <h2 class="section-title">¿Por qué las empresas españolas eligen Lumy?</h2>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🏰</div>
+                <h3>Servidores 100% Europeos</h3>
+                <p>Sus documentos empresariales, correos y archivos confidenciales están almacenados exclusivamente en centros de datos ubicados en la Unión Europea.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚖️</div>
+                <h3>Precios ajustados al mercado local</h3>
+                <p>A diferencia de los gigantes estadounidenses que aplican tarifas fijas elevadas, adaptamos nuestros precios al poder adquisitivo (PPA) del mercado español.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📜</div>
+                <h3>Garantía y Privacidad RGPD</h3>
+                <p>Sin rastreo publicitario ni minería de datos en sus documentos. Cumplimiento total con la AEPD y las normativas europeas de protección de datos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="precios">
+        <span class="section-tag">Tarifas para el Mercado Español</span>
+        <h2 class="section-title">Planes y Precios Asequibles</h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">Ajustados a la paridad de poder adquisitivo en España.</p>
+
+        <div class="pricing-grid">
+            <!-- 50 GB Plan -->
+            <div class="pricing-card">
+                <h3>Estándar 50 GB</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Ideal para autónomos y pequeñas empresas</p>
+                <div class="plan-price">3,90 € <span>/ usuario / mes</span></div>
+                <a href="#" class="btn-primary" style="display: block; text-align: center; margin-top: 1rem;">Probar Gratis</a>
+                <ul class="pricing-features">
+                    <li>50 GB de almacenamiento unificado</li>
+                    <li>Correo profesional personalizado</li>
+                    <li>Lumy Drive y Documentos (ONLYOFFICE)</li>
+                    <li>Videollamadas HD y Calendario</li>
+                    <li>Soporte técnico por correo</li>
+                </ul>
+            </div>
+
+            <!-- 2 TB Plan -->
+            <div class="pricing-card popular">
+                <span class="popular-badge">Más Popular</span>
+                <h3>Pro 2 TB</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Para equipos que necesitan gran capacidad</p>
+                <div class="plan-price">8,90 € <span>/ usuario / mes</span></div>
+                <a href="#" class="btn-primary" style="display: block; text-align: center; margin-top: 1rem;">Probar Gratis</a>
+                <ul class="pricing-features">
+                    <li>2.000 GB (2 TB) de almacenamiento</li>
+                    <li>Correo profesional personalizado</li>
+                    <li>Lumy Drive y Documentos (ONLYOFFICE)</li>
+                    <li>Videollamadas HD y Calendario</li>
+                    <li>Soporte Prioritario 24/7</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2026 LumyCorp — Todos los derechos reservados. Está viendo <strong>Lumy España</strong> (<code>/country/spain/</code>). Alojado en la UE 🇪🇺</p>
+        </div>
+    </footer>
+
+</body>
+</html>
